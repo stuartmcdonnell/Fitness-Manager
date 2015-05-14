@@ -247,14 +247,29 @@ namespace FitNess3
         {
             Cursor.Current = Cursors.WaitCursor;
             string path = getPath();
+            if (path == "null" || path == "invalid")
+            {
+                Console.WriteLine("Path Selection Terminated by user");
+            }
+            else
+            {
                 generatePDF gpdf = new generatePDF();
                 gpdf.ExportToPdf(this.getData().Tables[0], path);
-                Cursor.Current = Cursors.Default;
+            }
+            Cursor.Current = Cursors.Default;
         }
 
-        private string getPath() {
-            folderBrowserDialog1.ShowDialog();
-            string path = folderBrowserDialog1.SelectedPath.ToString();
+        private string getPath()
+        {
+            string path = "null";
+            if (folderBrowserDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                path = folderBrowserDialog1.SelectedPath.ToString();
+            }
+            else
+            {
+                path = "invalid";
+            }
             return path;
         }
 

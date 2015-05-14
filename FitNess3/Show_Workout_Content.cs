@@ -79,19 +79,31 @@ namespace FitNess3
             getData();
         }
 
-        private string getPath()
-        {
-            folderBrowserDialog1.ShowDialog();
-            string path = folderBrowserDialog1.SelectedPath.ToString();
+        private string getPath(){
+            string path = "null";
+            if (folderBrowserDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                path = folderBrowserDialog1.SelectedPath.ToString();
+            }
+            else {
+                path = "invalid";
+            }
             return path;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             Cursor.Current = Cursors.WaitCursor;
             string path = getPath();
-            generateWorkoutPDF gpdf = new generateWorkoutPDF();
-            gpdf.ExportToPdf(this.getData().Tables[0], path);
+            if (path == "null" || path == "invalid")
+            {
+                Console.WriteLine("Path Selection Terminated by user");
+            }
+            else {
+                generateWorkoutPDF gpdf = new generateWorkoutPDF();
+                gpdf.ExportToPdf(this.getData().Tables[0], path);
+            }
             Cursor.Current = Cursors.Default;
         }
 
