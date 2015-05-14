@@ -33,7 +33,7 @@ namespace FitNess3
 
         private void Search_Client_Load(object sender, EventArgs e)
         {
-
+            this.ActiveControl = forename_textbox;
         }
 
         public DataSet searchResult() {
@@ -69,7 +69,12 @@ namespace FitNess3
         private void Search_Client_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
-            this.Hide();
+            this.Dispose();
+        }
+
+        private void forename_textbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

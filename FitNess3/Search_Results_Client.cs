@@ -74,5 +74,12 @@ namespace FitNess3
             this.Dispose();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Assign_Plan ap = new Assign_Plan();
+            ap.assignOpenInherit(Int32.Parse(listBox1.SelectedValue.ToString()));
+            this.Dispose();
+        }
+
     }
 }

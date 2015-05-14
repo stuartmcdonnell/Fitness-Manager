@@ -32,6 +32,11 @@ namespace FitNess3
             getData();
         }
 
+        public void assignOpenInherit(int value) {
+            this.Show();
+            comboBox1.SelectedValue= value;
+        }
+
         private void getData() {
 
             users = lu.getData();
@@ -104,13 +109,11 @@ namespace FitNess3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            getData();
             assignPlan();          
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            getData();
             assignWorkout();
         }
 

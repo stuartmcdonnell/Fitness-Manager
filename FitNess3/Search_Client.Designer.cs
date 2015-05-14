@@ -67,6 +67,7 @@
             this.forename_textbox.Name = "forename_textbox";
             this.forename_textbox.Size = new System.Drawing.Size(116, 20);
             this.forename_textbox.TabIndex = 6;
+            this.forename_textbox.TextChanged += new System.EventHandler(this.forename_textbox_TextChanged);
             // 
             // search_button
             // 
