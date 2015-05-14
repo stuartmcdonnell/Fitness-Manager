@@ -46,6 +46,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBox1
@@ -105,7 +107,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(358, 227);
+            this.label4.Location = new System.Drawing.Point(12, 291);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 9;
@@ -114,7 +116,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(358, 240);
+            this.label5.Location = new System.Drawing.Point(12, 304);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 10;
@@ -123,7 +125,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(358, 253);
+            this.label6.Location = new System.Drawing.Point(12, 317);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 13);
             this.label6.TabIndex = 11;
@@ -132,7 +134,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(358, 267);
+            this.label7.Location = new System.Drawing.Point(12, 331);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 12;
@@ -142,7 +144,7 @@
             // calories_label
             // 
             this.calories_label.AutoSize = true;
-            this.calories_label.Location = new System.Drawing.Point(431, 227);
+            this.calories_label.Location = new System.Drawing.Point(85, 291);
             this.calories_label.Name = "calories_label";
             this.calories_label.Size = new System.Drawing.Size(13, 13);
             this.calories_label.TabIndex = 13;
@@ -151,7 +153,7 @@
             // proteinlabel
             // 
             this.proteinlabel.AutoSize = true;
-            this.proteinlabel.Location = new System.Drawing.Point(431, 240);
+            this.proteinlabel.Location = new System.Drawing.Point(85, 304);
             this.proteinlabel.Name = "proteinlabel";
             this.proteinlabel.Size = new System.Drawing.Size(13, 13);
             this.proteinlabel.TabIndex = 14;
@@ -160,7 +162,7 @@
             // carbstotal
             // 
             this.carbstotal.AutoSize = true;
-            this.carbstotal.Location = new System.Drawing.Point(422, 253);
+            this.carbstotal.Location = new System.Drawing.Point(76, 317);
             this.carbstotal.Name = "carbstotal";
             this.carbstotal.Size = new System.Drawing.Size(13, 13);
             this.carbstotal.TabIndex = 15;
@@ -169,7 +171,7 @@
             // fattotal
             // 
             this.fattotal.AutoSize = true;
-            this.fattotal.Location = new System.Drawing.Point(412, 266);
+            this.fattotal.Location = new System.Drawing.Point(66, 330);
             this.fattotal.Name = "fattotal";
             this.fattotal.Size = new System.Drawing.Size(13, 13);
             this.fattotal.TabIndex = 16;
@@ -187,19 +189,38 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(358, 185);
+            this.button2.Location = new System.Drawing.Point(464, 291);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 39);
+            this.button2.Size = new System.Drawing.Size(100, 39);
             this.button2.TabIndex = 18;
             this.button2.Text = "Generate PDF";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(358, 60);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(206, 225);
+            this.listBox3.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(355, 44);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Notes";
+            // 
             // Show_Plan_Content
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 297);
+            this.ClientSize = new System.Drawing.Size(576, 353);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.listBox3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.fattotal);
@@ -245,5 +266,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Label label8;
     }
 }

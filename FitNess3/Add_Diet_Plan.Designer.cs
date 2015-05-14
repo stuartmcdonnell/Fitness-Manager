@@ -53,6 +53,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -133,7 +139,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(248, 379);
+            this.button2.Location = new System.Drawing.Point(248, 519);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(102, 37);
             this.button2.TabIndex = 10;
@@ -173,7 +179,7 @@
             // calories
             // 
             this.calories.AutoSize = true;
-            this.calories.Location = new System.Drawing.Point(17, 379);
+            this.calories.Location = new System.Drawing.Point(8, 519);
             this.calories.Name = "calories";
             this.calories.Size = new System.Drawing.Size(50, 13);
             this.calories.TabIndex = 14;
@@ -182,7 +188,7 @@
             // protein
             // 
             this.protein.AutoSize = true;
-            this.protein.Location = new System.Drawing.Point(17, 403);
+            this.protein.Location = new System.Drawing.Point(8, 543);
             this.protein.Name = "protein";
             this.protein.Size = new System.Drawing.Size(46, 13);
             this.protein.TabIndex = 15;
@@ -191,7 +197,7 @@
             // carbs
             // 
             this.carbs.AutoSize = true;
-            this.carbs.Location = new System.Drawing.Point(82, 379);
+            this.carbs.Location = new System.Drawing.Point(73, 519);
             this.carbs.Name = "carbs";
             this.carbs.Size = new System.Drawing.Size(37, 13);
             this.carbs.TabIndex = 16;
@@ -200,7 +206,7 @@
             // fat
             // 
             this.fat.AutoSize = true;
-            this.fat.Location = new System.Drawing.Point(94, 403);
+            this.fat.Location = new System.Drawing.Point(85, 543);
             this.fat.Name = "fat";
             this.fat.Size = new System.Drawing.Size(25, 13);
             this.fat.TabIndex = 17;
@@ -209,7 +215,7 @@
             // caltotal
             // 
             this.caltotal.AutoSize = true;
-            this.caltotal.Location = new System.Drawing.Point(60, 379);
+            this.caltotal.Location = new System.Drawing.Point(51, 519);
             this.caltotal.Name = "caltotal";
             this.caltotal.Size = new System.Drawing.Size(13, 13);
             this.caltotal.TabIndex = 18;
@@ -218,7 +224,7 @@
             // prototal
             // 
             this.prototal.AutoSize = true;
-            this.prototal.Location = new System.Drawing.Point(60, 403);
+            this.prototal.Location = new System.Drawing.Point(51, 543);
             this.prototal.Name = "prototal";
             this.prototal.Size = new System.Drawing.Size(13, 13);
             this.prototal.TabIndex = 19;
@@ -227,7 +233,7 @@
             // carbtotal
             // 
             this.carbtotal.AutoSize = true;
-            this.carbtotal.Location = new System.Drawing.Point(115, 379);
+            this.carbtotal.Location = new System.Drawing.Point(106, 519);
             this.carbtotal.Name = "carbtotal";
             this.carbtotal.Size = new System.Drawing.Size(13, 13);
             this.carbtotal.TabIndex = 20;
@@ -236,7 +242,7 @@
             // fattotal
             // 
             this.fattotal.AutoSize = true;
-            this.fattotal.Location = new System.Drawing.Point(115, 403);
+            this.fattotal.Location = new System.Drawing.Point(106, 543);
             this.fattotal.Name = "fattotal";
             this.fattotal.Size = new System.Drawing.Size(13, 13);
             this.fattotal.TabIndex = 21;
@@ -262,19 +268,79 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(163, 379);
+            this.button1.Location = new System.Drawing.Point(140, 519);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 37);
+            this.button1.Size = new System.Drawing.Size(102, 37);
             this.button1.TabIndex = 24;
             this.button1.Text = "Remove Food";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(17, 399);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(332, 83);
+            this.richTextBox1.TabIndex = 25;
+            this.richTextBox1.Text = "";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 383);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Notes";
+            // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(366, 200);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(272, 173);
+            this.listBox3.TabIndex = 27;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(266, 379);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(84, 17);
+            this.checkBox1.TabIndex = 28;
+            this.checkBox1.Text = "Show Notes";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(363, 181);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 29;
+            this.label9.Text = "Notes";
+            // 
+            // label10
+            // 
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label10.Location = new System.Drawing.Point(17, 499);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(333, 2);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "                                           ";
+            // 
             // Add_Diet_Plan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 427);
+            this.ClientSize = new System.Drawing.Size(364, 568);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.listBox3);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -334,5 +400,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

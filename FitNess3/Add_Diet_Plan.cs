@@ -56,7 +56,7 @@ namespace FitNess3
             try
             {
                 MySqlDataAdapter a = new MySqlDataAdapter();
-                string stm = ("INSERT INTO `fitdb`.`plan_foods` (`plan_id`, `food_id`, `time`) VALUES ('"+comboBox2.SelectedValue.ToString()+"', '"+comboBox1.SelectedValue.ToString()+"', '"+dateTimePicker1.Value.ToLongTimeString()+"');");
+                string stm = ("INSERT INTO `fitdb`.`plan_foods` (`plan_id`, `food_id`, `time`, `notes`) VALUES ('" + comboBox2.SelectedValue.ToString() + "', '" + comboBox1.SelectedValue.ToString() + "', '" + dateTimePicker1.Value.ToLongTimeString() + "', '"+richTextBox1.Text+"');");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
 
                 a.SelectCommand = cmd;
@@ -103,7 +103,7 @@ namespace FitNess3
             try
             {
                 MySqlDataAdapter a = new MySqlDataAdapter();
-                string stm = ("SELECT plan_foods.plan_food_id,foods.name,plan_foods.time FROM plan_foods INNER JOIN foods ON plan_foods.food_id=foods.food_id WHERE plan_id=" + comboBox2.SelectedValue.ToString() + "");
+                string stm = ("SELECT plan_foods.plan_food_id,foods.name,plan_foods.time,plan_foods.notes FROM plan_foods INNER JOIN foods ON plan_foods.food_id=foods.food_id WHERE plan_id=" + comboBox2.SelectedValue.ToString() + "");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
 
                 a.SelectCommand = cmd;
@@ -119,6 +119,10 @@ namespace FitNess3
                 listBox2.DataSource = ds.Tables[0];
                 listBox2.ValueMember = "plan_food_id";
                 listBox2.DisplayMember = "time";
+
+                listBox3.DataSource = ds.Tables[0];
+                listBox3.ValueMember = "plan_food_id";
+                listBox3.DisplayMember = "notes";
 
             }
             catch (Exception exc)
@@ -345,6 +349,17 @@ namespace FitNess3
         private void button1_Click_2(object sender, EventArgs e)
         {
             removeFood();
+        }
+
+        private void checkBox1_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                this.Width = 660;
+            }
+            else {
+                this.Width = 380;
+            }
         }
 
     }//BASE

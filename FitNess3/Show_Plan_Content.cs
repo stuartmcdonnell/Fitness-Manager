@@ -43,13 +43,14 @@ namespace FitNess3
         {
             listBox1.Visible = false;
             listBox2.Visible = false;
+            listBox3.Visible = false;
 
             DatabaseConnection c = new DatabaseConnection();
             DataSet ds = new DataSet();
             try
             {
                 MySqlDataAdapter a = new MySqlDataAdapter();
-                string stm = ("SELECT foods.name,plan_foods.time FROM plan_foods INNER JOIN foods ON plan_foods.food_id=foods.food_id WHERE plan_id="+comboBox1.SelectedValue.ToString()+"");
+                string stm = ("SELECT foods.name,plan_foods.time,plan_foods.notes FROM plan_foods INNER JOIN foods ON plan_foods.food_id=foods.food_id WHERE plan_id="+comboBox1.SelectedValue.ToString()+"");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
 
                 a.SelectCommand = cmd;
@@ -66,6 +67,10 @@ namespace FitNess3
                 listBox2.ValueMember = "name";
                 listBox2.DisplayMember = "time";
 
+                listBox3.DataSource = ds.Tables[0];
+                listBox3.ValueMember = "name";
+                listBox3.DisplayMember = "notes";
+
 
             }
             catch (Exception exc)
@@ -74,6 +79,7 @@ namespace FitNess3
 
             listBox1.Visible = true;
             listBox2.Visible = true;
+            listBox3.Visible = true;
 
             return ds;
         }
@@ -269,7 +275,7 @@ namespace FitNess3
             else
             {
                 generatePDF gpdf = new generatePDF();
-                gpdf.ExportToPdf(this.getData().Tables[0], path);
+                gpdf.ExportToPdf(this.getData().Tables[0], path, getTotalCalories(), getTotalProtein(), getTotalCarbs(), getTotalFat());
             }
             Cursor.Current = Cursors.Default;
         }

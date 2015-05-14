@@ -17,7 +17,7 @@ namespace FitNess3
     {
 
 
-        public void ExportToPdf(DataTable datatable, string newpdf)
+        public void ExportToPdf(DataTable datatable, string newpdf, int calories, int protein, int carbs, int fat)
         {
 
             try
@@ -76,8 +76,17 @@ namespace FitNess3
 
                 tablep.Add(table);
                 tablep.SpacingBefore = 150f;
+                tablep.SpacingAfter = 50f;
 
                 doc.Add(tablep);
+
+
+                Paragraph p = new Paragraph();
+                p.Font = font5;
+                p.Add("CALORIES: "+calories.ToString()+"    PROTEIN: "+protein.ToString()+"    CARBS: "+carbs.ToString()+"    FAT: "+fat.ToString());
+                p.Alignment = Element.ALIGN_CENTER;
+                doc.Add(p);
+
 
                 //TABLE FINISHED
 
