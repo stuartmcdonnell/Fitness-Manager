@@ -62,6 +62,11 @@ namespace FitNess3
                 searchplan.Enabled = true;
                 addfood.Enabled = true;
                 listfoods.Enabled = true;
+                addworkout.Enabled = true;
+                listworkout.Enabled = true;
+                showworkout.Enabled = true;
+                addexercise.Enabled = true;
+                listexercise.Enabled = true;
             }
             else {
                 toolStripLabel1.Text = "Please Log In!";//Logged Out
@@ -78,6 +83,11 @@ namespace FitNess3
                 searchplan.Enabled = false;
                 addfood.Enabled = false;
                 listfoods.Enabled = false;
+                addworkout.Enabled = false;
+                listworkout.Enabled = false;
+                showworkout.Enabled = false;
+                addexercise.Enabled = false;
+                listexercise.Enabled = false;
             }
             timer1.Start();
         }

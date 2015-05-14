@@ -53,12 +53,12 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.listworkout = new System.Windows.Forms.Button();
+            this.showworkout = new System.Windows.Forms.Button();
+            this.addworkout = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.addexercise = new System.Windows.Forms.Button();
+            this.listexercise = new System.Windows.Forms.Button();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -306,9 +306,9 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.button5);
-            this.tabPage4.Controls.Add(this.button4);
-            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Controls.Add(this.listworkout);
+            this.tabPage4.Controls.Add(this.showworkout);
+            this.tabPage4.Controls.Add(this.addworkout);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -317,40 +317,43 @@
             this.tabPage4.Text = "Workouts";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // listworkout
             // 
-            this.button5.Location = new System.Drawing.Point(267, 6);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(255, 78);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "List Workouts";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.listworkout.Enabled = false;
+            this.listworkout.Location = new System.Drawing.Point(267, 6);
+            this.listworkout.Name = "listworkout";
+            this.listworkout.Size = new System.Drawing.Size(255, 78);
+            this.listworkout.TabIndex = 11;
+            this.listworkout.Text = "List Workouts";
+            this.listworkout.UseVisualStyleBackColor = true;
+            this.listworkout.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button4
+            // showworkout
             // 
-            this.button4.Location = new System.Drawing.Point(6, 89);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(255, 78);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Show Workout Content";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            this.showworkout.Enabled = false;
+            this.showworkout.Location = new System.Drawing.Point(6, 89);
+            this.showworkout.Name = "showworkout";
+            this.showworkout.Size = new System.Drawing.Size(255, 78);
+            this.showworkout.TabIndex = 10;
+            this.showworkout.Text = "Show Workout Content";
+            this.showworkout.UseVisualStyleBackColor = true;
+            this.showworkout.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // button3
+            // addworkout
             // 
-            this.button3.Location = new System.Drawing.Point(6, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(255, 78);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Add/Modify Workout";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.addworkout.Enabled = false;
+            this.addworkout.Location = new System.Drawing.Point(6, 6);
+            this.addworkout.Name = "addworkout";
+            this.addworkout.Size = new System.Drawing.Size(255, 78);
+            this.addworkout.TabIndex = 9;
+            this.addworkout.Text = "Add/Modify Workout";
+            this.addworkout.UseVisualStyleBackColor = true;
+            this.addworkout.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.button1);
-            this.tabPage5.Controls.Add(this.button2);
+            this.tabPage5.Controls.Add(this.addexercise);
+            this.tabPage5.Controls.Add(this.listexercise);
             this.tabPage5.Controls.Add(this.toolStrip2);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
@@ -360,25 +363,27 @@
             this.tabPage5.Text = "Exercises";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // addexercise
             // 
-            this.button1.Location = new System.Drawing.Point(6, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 78);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Add Exercise";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_4);
+            this.addexercise.Enabled = false;
+            this.addexercise.Location = new System.Drawing.Point(6, 6);
+            this.addexercise.Name = "addexercise";
+            this.addexercise.Size = new System.Drawing.Size(255, 78);
+            this.addexercise.TabIndex = 16;
+            this.addexercise.Text = "Add Exercise";
+            this.addexercise.UseVisualStyleBackColor = true;
+            this.addexercise.Click += new System.EventHandler(this.button1_Click_4);
             // 
-            // button2
+            // listexercise
             // 
-            this.button2.Location = new System.Drawing.Point(6, 90);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(255, 78);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "List Exercises";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_3);
+            this.listexercise.Enabled = false;
+            this.listexercise.Location = new System.Drawing.Point(6, 90);
+            this.listexercise.Name = "listexercise";
+            this.listexercise.Size = new System.Drawing.Size(255, 78);
+            this.listexercise.TabIndex = 17;
+            this.listexercise.Text = "List Exercises";
+            this.listexercise.UseVisualStyleBackColor = true;
+            this.listexercise.Click += new System.EventHandler(this.button2_Click_3);
             // 
             // toolStrip2
             // 
@@ -502,8 +507,8 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addexercise;
+        private System.Windows.Forms.Button listexercise;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -511,9 +516,9 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button showworkout;
+        private System.Windows.Forms.Button addworkout;
+        private System.Windows.Forms.Button listworkout;
     }
 }
 

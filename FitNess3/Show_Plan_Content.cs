@@ -35,6 +35,8 @@ namespace FitNess3
             this.Show();
             comboBox1.SelectedValue = planid;
             getData();
+            getDisplayTotals();
+         
         }
 
         public DataSet getData()
@@ -239,8 +241,8 @@ namespace FitNess3
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void getDisplayTotals() {
+
             Cursor.Current = Cursors.WaitCursor;
             getData();
             calories_label.Text = getTotalCalories().ToString();
@@ -248,6 +250,12 @@ namespace FitNess3
             carbstotal.Text = getTotalCarbs().ToString();
             fattotal.Text = getTotalFat().ToString();
             Cursor.Current = Cursors.Default;
+        
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            getDisplayTotals();
         }
 
         private void button2_Click(object sender, EventArgs e)
