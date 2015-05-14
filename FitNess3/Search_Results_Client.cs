@@ -81,5 +81,21 @@ namespace FitNess3
             this.Dispose();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Show_Plan_Content sp = new Show_Plan_Content();
+            //string planid = "7";
+            string planid = listbox_plan.GetItemText(listbox_plan.SelectedItem);
+            sp.showInherit(planid);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Show_Workout_Content sw = new Show_Workout_Content();
+            //string planid = "7";
+            string workoutid = listBox1.GetItemText(listBox1.SelectedItem);
+            sw.showInherit(workoutid);
+        }
+
     }
 }

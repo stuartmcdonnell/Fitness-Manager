@@ -28,6 +28,13 @@ namespace FitNess3
             comboBox1.DisplayMember = "name";
         }
 
+        public void showInherit(string workoutid)
+        {
+            this.Show();
+            comboBox1.SelectedValue = workoutid;
+            getData();
+        }
+
 
         private DataSet getData() {
 

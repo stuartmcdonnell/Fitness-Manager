@@ -29,6 +29,7 @@ namespace FitNess3
         private void button1_Click(object sender, EventArgs e)
         {
             searchResult();
+            this.Dispose();
         }
 
         private void Search_Client_Load(object sender, EventArgs e)

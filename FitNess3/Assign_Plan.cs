@@ -106,6 +106,12 @@ namespace FitNess3
             }
         }
 
+        private void assignBoth() {
+
+            assignWorkout();
+            assignPlan();
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -115,6 +121,11 @@ namespace FitNess3
         private void button3_Click(object sender, EventArgs e)
         {
             assignWorkout();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            assignBoth();
         }
 
     }

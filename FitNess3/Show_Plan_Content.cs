@@ -24,11 +24,18 @@ namespace FitNess3
             ListPlans lp = new ListPlans();
             DataSet planlist = new DataSet();
             planlist = lp.getPlans();
+
             comboBox1.DataSource = planlist.Tables[0];
             comboBox1.ValueMember = "plan_id";
             comboBox1.DisplayMember = "plan_name";
+
         }
 
+        public void showInherit(string planid) {
+            this.Show();
+            comboBox1.SelectedValue = planid;
+            getData();
+        }
 
         public DataSet getData()
         {
