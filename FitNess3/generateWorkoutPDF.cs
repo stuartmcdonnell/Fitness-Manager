@@ -31,7 +31,7 @@ namespace FitNess3
 
 
                 // Image overlay = Image.GetInstance(AppDomain.CurrentDomain.BaseDirectory.ToString() + "/overlay.png");
-                System.Drawing.Image resourceoverlay = System.Drawing.Image.FromHbitmap(FitNess3.Properties.Resources.overlay.GetHbitmap());
+                System.Drawing.Image resourceoverlay = System.Drawing.Image.FromHbitmap(FitNess3.Properties.Resources.WorkoutPlanOverlay.GetHbitmap());
                 Image overlay = Image.GetInstance(resourceoverlay, System.Drawing.Imaging.ImageFormat.Png);
 
 

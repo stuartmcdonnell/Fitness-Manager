@@ -299,6 +299,9 @@
   <ItemGroup>
     <Content Include="images\overlay.png" />
     <Content Include="medium-2547-5184431.ico" />
+    <EmbeddedResource Include="Resources\WorkoutPlanOverlay.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\overlay.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
