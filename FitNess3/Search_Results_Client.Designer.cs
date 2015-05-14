@@ -40,6 +40,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.listbox_planname = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listbox_forename
@@ -52,7 +56,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(547, 216);
+            this.button1.Location = new System.Drawing.Point(837, 216);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 27);
             this.button1.TabIndex = 1;
@@ -137,11 +141,49 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Diet Plan Name";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(643, 37);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(139, 173);
+            this.listBox1.TabIndex = 11;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(788, 37);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(139, 173);
+            this.listBox2.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(640, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Workout ID";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(785, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Workout Name";
+            // 
             // Search_Results_Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 253);
+            this.ClientSize = new System.Drawing.Size(939, 253);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.listbox_planname);
             this.Controls.Add(this.label4);
@@ -176,5 +218,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listbox_planname;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

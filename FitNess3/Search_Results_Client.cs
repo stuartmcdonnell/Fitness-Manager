@@ -51,6 +51,14 @@ namespace FitNess3
             listbox_planname.ValueMember = "client_id";
             listbox_planname.DisplayMember = "plan_name";
 
+            listBox1.DataSource = ds.Tables[0];
+            listBox1.ValueMember = "client_id";
+            listBox1.DisplayMember = "workout_id";
+
+            listBox2.DataSource = ds.Tables[0];
+            listBox2.ValueMember = "client_id";
+            listBox2.DisplayMember = "name";
+
         }
 
 
