@@ -461,7 +461,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
-            this.Text = "LG Fitness - Home";
+            this.Text = "FitNess Manager- Home";
             this.Load += new System.EventHandler(this.Home_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
