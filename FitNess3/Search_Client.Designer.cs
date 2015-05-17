@@ -58,22 +58,22 @@
             // 
             this.surname_textbox.Location = new System.Drawing.Point(72, 38);
             this.surname_textbox.Name = "surname_textbox";
-            this.surname_textbox.Size = new System.Drawing.Size(116, 20);
+            this.surname_textbox.Size = new System.Drawing.Size(135, 20);
             this.surname_textbox.TabIndex = 7;
             // 
             // forename_textbox
             // 
             this.forename_textbox.Location = new System.Drawing.Point(72, 12);
             this.forename_textbox.Name = "forename_textbox";
-            this.forename_textbox.Size = new System.Drawing.Size(116, 20);
+            this.forename_textbox.Size = new System.Drawing.Size(135, 20);
             this.forename_textbox.TabIndex = 6;
             this.forename_textbox.TextChanged += new System.EventHandler(this.forename_textbox_TextChanged);
             // 
             // search_button
             // 
-            this.search_button.Location = new System.Drawing.Point(108, 78);
+            this.search_button.Location = new System.Drawing.Point(20, 64);
             this.search_button.Name = "search_button";
-            this.search_button.Size = new System.Drawing.Size(80, 34);
+            this.search_button.Size = new System.Drawing.Size(187, 47);
             this.search_button.TabIndex = 5;
             this.search_button.Text = "Search";
             this.search_button.UseVisualStyleBackColor = true;

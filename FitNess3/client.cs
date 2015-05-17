@@ -11,9 +11,10 @@ namespace FitNess3
 
     class Client
     {
-        int client_id;
-        String forename;
-        String surname;
-        int plan_id;
+        int client_id{get;set;}
+        String forename { get; set; }
+        String surname { get; set; }
+        int plan_id { get; set; }
+        int workout_id { get; set; }
     }
 }

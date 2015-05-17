@@ -22,6 +22,8 @@ namespace FitNess3
         Form_List_Users lu = new Form_List_Users();
         ListWorkouts lw = new ListWorkouts();
 
+        private string clientid { get; set; }
+
         public Assign_Plan()
         {
             InitializeComponent();
@@ -32,9 +34,9 @@ namespace FitNess3
             getData();
         }
 
-        public void assignOpenInherit(int value) {
+        public void assignOpenInherit(int clientid) {
             this.Show();
-            comboBox1.SelectedValue= value;
+            comboBox1.SelectedValue=clientid;
         }
 
         private void getData() {
@@ -126,6 +128,11 @@ namespace FitNess3
         private void button4_Click(object sender, EventArgs e)
         {
             assignBoth();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

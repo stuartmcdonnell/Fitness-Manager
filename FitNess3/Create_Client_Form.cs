@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace FitNess3
 {
@@ -15,6 +16,8 @@ namespace FitNess3
     {
 
         DatabaseConnection c = new DatabaseConnection();
+        private string filepath { get; set; }
+        private string filename { get; set; }
 
         public Create_Client_Form()
         {
@@ -24,8 +27,9 @@ namespace FitNess3
         private void button1_Click(object sender, EventArgs e)
         {
             try{
+            copyPicture();
             c.connect();
-            string stm = ("INSERT INTO `clients`(`forename`, `surname`) VALUES ('"+forename_textbox.Text+"','"+surname_textbox.Text+"')");
+            string stm = ("INSERT INTO `clients`(`forename`, `surname`,`picture_directory`) VALUES ('" + forename_textbox.Text + "','" + surname_textbox.Text + "', '" + filename + "')");
             MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
             cmd.ExecuteNonQuery();
             MessageBox.Show("Client Added!", "Client Added");
@@ -41,6 +45,36 @@ namespace FitNess3
         {
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void getPicturePath(){
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
+                this.filepath = openFileDialog1.FileName;
+                this.filename = openFileDialog1.SafeFileName;
+                button2.Text = openFileDialog1.SafeFileName;
+            }
+        }
+
+
+
+        private void copyPicture() {
+            try
+            {
+
+                DialogResult result = MessageBox.Show("This Will Overwrite Any Picture With The Same Name!" + Environment.NewLine + "Continue?", "Warngin!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    System.IO.File.Copy(this.filepath, "UserPictures/" + this.filename, true);
+                }
+            }
+            catch (Exception exc) {
+                MessageBox.Show(exc.ToString());
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            getPicturePath();
         }
 
 

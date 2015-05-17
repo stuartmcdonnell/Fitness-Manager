@@ -97,5 +97,19 @@ namespace FitNess3
             sw.showInherit(workoutid);
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            client_profile profile = new client_profile();
+            int clientid = Convert.ToInt32(listbox_clientID.GetItemText(listbox_clientID.SelectedItem).ToString());
+            profile.OpenMe(clientid);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Client_Edit editclient = new Client_Edit();
+            string clientid = listbox_clientID.GetItemText(listbox_clientID.SelectedItem).ToString();
+            editclient.openMe(clientid);
+        }
+
     }
 }

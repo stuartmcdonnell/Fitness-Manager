@@ -91,6 +91,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2015.1.225.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.UI, Version=2015.1.225.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikCommon, Version=2015.1.225.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add_Diet_Plan.cs">
@@ -124,6 +127,18 @@
       <DependentUpon>Change_Password.cs</DependentUpon>
     </Compile>
     <Compile Include="Client.cs" />
+    <Compile Include="Client_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client_Edit.Designer.cs">
+      <DependentUpon>Client_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="client_profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="client_profile.Designer.cs">
+      <DependentUpon>client_profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Create_Client_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +247,12 @@
     <EmbeddedResource Include="Change_Password.resx">
       <DependentUpon>Change_Password.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client_Edit.resx">
+      <DependentUpon>Client_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="client_profile.resx">
+      <DependentUpon>client_profile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Create_Client_Form.resx">
       <DependentUpon>Create_Client_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +277,7 @@
     <EmbeddedResource Include="List_Workouts.resx">
       <DependentUpon>List_Workouts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -301,6 +323,9 @@
   <ItemGroup>
     <Content Include="images\overlay.png" />
     <Content Include="medium-2547-5184431.ico" />
+    <EmbeddedResource Include="Resources\profile_default.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\WorkoutPlanOverlay.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

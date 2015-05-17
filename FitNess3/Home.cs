@@ -29,6 +29,15 @@ namespace FitNess3
         {
             timer1.Interval = 1000;
             timer1.Start();
+
+            if (System.IO.Directory.Exists("UserPictures"))
+            {
+                Console.WriteLine("Profile Picture Folder Exists! Continue...");
+            }
+            else {
+                System.IO.Directory.CreateDirectory("UserPictures");
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -207,6 +216,12 @@ namespace FitNess3
         {
             List_Workouts lw = new List_Workouts();
             lw.Show();
+        }
+
+        private void button1_Click_5(object sender, EventArgs e)
+        {
+            client_profile profile = new client_profile();
+            profile.OpenMe(213);
         }
 
     }

@@ -43,7 +43,7 @@ namespace FitNess3
             {
                 Search_Results_Client sr = new Search_Results_Client();
                 c.connect();
-                string stm = ("SELECT `client_id`, `forename`, `surname`, `plan_id`,`plan_name`, `workout_id` , `name` FROM `clients` LEFT JOIN `plans` USING(plan_id) LEFT JOIN `workouts` USING(workout_id) WHERE forename LIKE '"+forename_textbox.Text+"' AND surname LIKE '"+surname_textbox.Text+"'");
+                string stm = ("SELECT `client_id`, `forename`, `surname`, `plan_id`,`plan_name`, `workout_id`,`name`,`picture_directory` FROM `clients` LEFT JOIN `plans` USING(plan_id) LEFT JOIN `workouts` USING(workout_id) WHERE forename LIKE '" + forename_textbox.Text + "' OR surname LIKE '" + surname_textbox.Text + "'");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
 
 

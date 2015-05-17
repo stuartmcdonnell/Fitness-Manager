@@ -64,7 +64,7 @@ namespace FitNess3
         {
 
             string selected = listBox1.SelectedValue.ToString();
-            var confirm = MessageBox.Show("Are You Sure You Wish To Delete Exercise, ID: " + selected, "Confirm Deletion", MessageBoxButtons.YesNo);
+            var confirm = MessageBox.Show("Are You Sure You Wish To Delete Exercise? "+Environment.NewLine+"ID: "+selected+Environment.NewLine+"Warning: This Will Remove This Exercise From All Workouts!", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (confirm == DialogResult.Yes)
             {
