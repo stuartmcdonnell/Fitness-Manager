@@ -36,6 +36,7 @@ namespace FitNess3
             this.clientid = clientid_in;
             getClient();
             setPicture();
+            getDislikes();
         }
 
         private void setPicture() {
@@ -82,6 +83,30 @@ namespace FitNess3
 
         }
 
+
+        private void getDislikes() {
+
+            DataSet ds = new DataSet();
+            MySqlDataAdapter a = new MySqlDataAdapter();
+            DatabaseConnection c = new DatabaseConnection();
+
+            string stm = ("SELECT clients.client_id,client_dislikes_id,client_dislikes.food_id,foods.name FROM client_dislikes LEFT JOIN clients ON clients.client_id=client_dislikes.client_id LEFT JOIN foods ON foods.food_id=client_dislikes.food_id WHERE clients.client_id="+clientid);
+            MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
+
+            a.SelectCommand = cmd;
+            a.Fill(ds);
+            a.Dispose();
+
+            cmd.Dispose();
+            c.closeConnection();
+
+            listBox1.DataSource = ds.Tables[0];
+            listBox1.ValueMember = "client_dislikes_id";
+            listBox1.DisplayMember = "name";
+
+
+        }
+
         private void label6_Click(object sender, EventArgs e)
         {
 
@@ -90,6 +115,13 @@ namespace FitNess3
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Client_Edit editclient = new Client_Edit();
+            editclient.openMe(clientid.ToString());
+            this.Dispose();
         }
 
 

@@ -148,7 +148,7 @@
             this.add_client.Name = "add_client";
             this.add_client.Size = new System.Drawing.Size(255, 78);
             this.add_client.TabIndex = 3;
-            this.add_client.Text = "Add Client";
+            this.add_client.Text = "Add Client\r\n----------------\r\n+ Add New Clients\r\n";
             this.add_client.UseVisualStyleBackColor = true;
             this.add_client.Click += new System.EventHandler(this.add_client_Click);
             // 
@@ -159,7 +159,7 @@
             this.assign_plan.Name = "assign_plan";
             this.assign_plan.Size = new System.Drawing.Size(255, 78);
             this.assign_plan.TabIndex = 4;
-            this.assign_plan.Text = "Assign Diet/Workout";
+            this.assign_plan.Text = "Assign Diet/Workout\r\n----------------\r\n+ Assign Diet Plan\r\n+ Assign Workout";
             this.assign_plan.UseVisualStyleBackColor = true;
             this.assign_plan.Click += new System.EventHandler(this.assign_plan_Click);
             // 
@@ -170,7 +170,8 @@
             this.search_client.Name = "search_client";
             this.search_client.Size = new System.Drawing.Size(255, 78);
             this.search_client.TabIndex = 5;
-            this.search_client.Text = "Search Client";
+            this.search_client.Text = "Search Client\r\n----------------\r\n+ View Profiles\r\n+ Assign Plans\r\n+ Generate PDFs" +
+    "";
             this.search_client.UseVisualStyleBackColor = true;
             this.search_client.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -181,7 +182,7 @@
             this.list_users.Name = "list_users";
             this.list_users.Size = new System.Drawing.Size(255, 78);
             this.list_users.TabIndex = 6;
-            this.list_users.Text = "List Clients";
+            this.list_users.Text = "List/Remove Clients\r\n----------------\r\n+ View Clients With/Without Plans";
             this.list_users.UseVisualStyleBackColor = true;
             this.list_users.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -192,7 +193,8 @@
             this.modifydietplan.Name = "modifydietplan";
             this.modifydietplan.Size = new System.Drawing.Size(255, 78);
             this.modifydietplan.TabIndex = 8;
-            this.modifydietplan.Text = "Add/Modify Diet Plan";
+            this.modifydietplan.Text = "Add/Modify Diet Plan\r\n----------------\r\n+ Create Diet Plans\r\n+ Add Foods to Diet " +
+    "Plans\r\n+ Remove Foods from Plans";
             this.modifydietplan.UseVisualStyleBackColor = true;
             this.modifydietplan.Click += new System.EventHandler(this.button1_Click_2);
             // 
@@ -203,7 +205,7 @@
             this.searchplan.Name = "searchplan";
             this.searchplan.Size = new System.Drawing.Size(255, 78);
             this.searchplan.TabIndex = 9;
-            this.searchplan.Text = "Search Plan";
+            this.searchplan.Text = "Search Plan\r\n----------------\r\n+ Search for Diet Plan ID";
             this.searchplan.UseVisualStyleBackColor = true;
             this.searchplan.Click += new System.EventHandler(this.button2_Click_1);
             // 
@@ -214,7 +216,8 @@
             this.listplans.Name = "listplans";
             this.listplans.Size = new System.Drawing.Size(255, 78);
             this.listplans.TabIndex = 10;
-            this.listplans.Text = "List Plans";
+            this.listplans.Text = "List Plans\r\n----------------\r\n+ Show List of All Diet Plans\r\n+ Remove Selceted Pl" +
+    "ans";
             this.listplans.UseVisualStyleBackColor = true;
             this.listplans.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -225,7 +228,7 @@
             this.showplancontent.Name = "showplancontent";
             this.showplancontent.Size = new System.Drawing.Size(255, 78);
             this.showplancontent.TabIndex = 11;
-            this.showplancontent.Text = "Show Plan Content";
+            this.showplancontent.Text = "Show Plan Content\r\n----------------\r\n+ Generate PDFs\r\n+ View Diet Plan Overview";
             this.showplancontent.UseVisualStyleBackColor = true;
             this.showplancontent.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -236,7 +239,7 @@
             this.addfood.Name = "addfood";
             this.addfood.Size = new System.Drawing.Size(255, 78);
             this.addfood.TabIndex = 13;
-            this.addfood.Text = "Add Food";
+            this.addfood.Text = "Add Food\r\n----------------\r\n+ Add Food With Nutiritional Information";
             this.addfood.UseVisualStyleBackColor = true;
             this.addfood.Click += new System.EventHandler(this.button1_Click_3);
             // 
@@ -247,7 +250,7 @@
             this.listfoods.Name = "listfoods";
             this.listfoods.Size = new System.Drawing.Size(255, 78);
             this.listfoods.TabIndex = 14;
-            this.listfoods.Text = "List Foods";
+            this.listfoods.Text = "List Foods\r\n----------------\r\n+ List of All Foods\r\n+ Remove Selceted Foods";
             this.listfoods.UseVisualStyleBackColor = true;
             this.listfoods.Click += new System.EventHandler(this.button2_Click_2);
             // 
@@ -324,7 +327,7 @@
             this.listworkout.Name = "listworkout";
             this.listworkout.Size = new System.Drawing.Size(255, 78);
             this.listworkout.TabIndex = 11;
-            this.listworkout.Text = "List Workouts";
+            this.listworkout.Text = "List Workouts\r\n----------------\r\n+ List all Workouts\r\n+ Remove Selected Workouts";
             this.listworkout.UseVisualStyleBackColor = true;
             this.listworkout.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -335,7 +338,7 @@
             this.showworkout.Name = "showworkout";
             this.showworkout.Size = new System.Drawing.Size(255, 78);
             this.showworkout.TabIndex = 10;
-            this.showworkout.Text = "Show Workout Content";
+            this.showworkout.Text = "Show Workout Content\r\n----------------\r\n+ Generate PDFs\r\n+ View Workout Overview";
             this.showworkout.UseVisualStyleBackColor = true;
             this.showworkout.Click += new System.EventHandler(this.button4_Click_1);
             // 
@@ -346,7 +349,8 @@
             this.addworkout.Name = "addworkout";
             this.addworkout.Size = new System.Drawing.Size(255, 78);
             this.addworkout.TabIndex = 9;
-            this.addworkout.Text = "Add/Modify Workout";
+            this.addworkout.Text = "Add/Modify Workout\r\n----------------\r\n+ Create New Workouts\r\n+ Add Exercises to W" +
+    "orkouts\r\n+ Remove Exercises to Workouts";
             this.addworkout.UseVisualStyleBackColor = true;
             this.addworkout.Click += new System.EventHandler(this.button3_Click_1);
             // 
@@ -370,7 +374,7 @@
             this.addexercise.Name = "addexercise";
             this.addexercise.Size = new System.Drawing.Size(255, 78);
             this.addexercise.TabIndex = 16;
-            this.addexercise.Text = "Add Exercise";
+            this.addexercise.Text = "Add Exercise\r\n----------------\r\n+ Create new Exercises";
             this.addexercise.UseVisualStyleBackColor = true;
             this.addexercise.Click += new System.EventHandler(this.button1_Click_4);
             // 
@@ -381,7 +385,8 @@
             this.listexercise.Name = "listexercise";
             this.listexercise.Size = new System.Drawing.Size(255, 78);
             this.listexercise.TabIndex = 17;
-            this.listexercise.Text = "List Exercises";
+            this.listexercise.Text = "List Exercises\r\n----------------\r\n+ List all Exercises\r\n+ Remove Selected Exercis" +
+    "es";
             this.listexercise.UseVisualStyleBackColor = true;
             this.listexercise.Click += new System.EventHandler(this.button2_Click_3);
             // 

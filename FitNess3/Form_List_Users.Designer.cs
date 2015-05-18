@@ -141,7 +141,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(11, 230);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 38);
+            this.button1.Size = new System.Drawing.Size(110, 38);
             this.button1.TabIndex = 10;
             this.button1.Text = "Remove Selected";
             this.button1.UseVisualStyleBackColor = true;
