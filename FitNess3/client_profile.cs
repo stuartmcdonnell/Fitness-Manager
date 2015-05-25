@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace FitNess3
 {
@@ -41,7 +42,13 @@ namespace FitNess3
 
         private void setPicture() {
             if (picture_directory != "") {
-                pictureBox1.Image = Image.FromFile(@"UserPictures\\"+picture_directory);
+                if (File.Exists(@"UserPictures\\" + picture_directory))
+                {
+                    pictureBox1.Image = Image.FromFile(@"UserPictures\\" + picture_directory);
+                }
+                else {
+                    MessageBox.Show("File Doesn't Exist Using Default!");
+                }
             }
         }
 
@@ -122,6 +129,12 @@ namespace FitNess3
             Client_Edit editclient = new Client_Edit();
             editclient.openMe(clientid.ToString());
             this.Dispose();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Client_Add_Progress addprogress = new Client_Add_Progress(clientid.ToString());
+            addprogress.Show();
         }
 
 

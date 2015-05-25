@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace FitNess3
 {
@@ -68,9 +69,13 @@ namespace FitNess3
 
         private void setPicture()
         {
-            if (picture_directory != "")
+            if (File.Exists(@"UserPictures\\" + picture_directory))
             {
                 pictureBox1.Image = Image.FromFile(@"UserPictures\\" + picture_directory);
+            }
+            else
+            {
+                MessageBox.Show("File Doesn't Exist Using Default!");
             }
         }
 
@@ -240,6 +245,13 @@ namespace FitNess3
         private void button4_Click(object sender, EventArgs e)
         {
             removeDislike();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            client_profile profile = new client_profile();
+            profile.OpenMe(Convert.ToInt32(clientid));
+            this.Dispose();
         }
 
 

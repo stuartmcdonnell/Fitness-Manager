@@ -97,10 +97,7 @@ namespace FitNess3
             catch (Exception exc) {
                 System.Windows.Forms.MessageBox.Show(exc.ToString());
             }
-
-
-        }    
-
+        }
 
 
 

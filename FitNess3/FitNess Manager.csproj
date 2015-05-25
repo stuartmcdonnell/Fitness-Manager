@@ -50,6 +50,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>true</Prefer32Bit>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>FitNess3.Program</StartupObject>
@@ -64,13 +65,18 @@
     <ManifestKeyFile>LG_Fitness_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevComponents.DotNetBar2, Version=12.0.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04" />
     <Reference Include="itextsharp">
       <HintPath>.\itextsharp.dll</HintPath>
     </Reference>
@@ -80,7 +86,6 @@
     <Reference Include="MySql.Web">
       <HintPath>..\..\FitNess\MySql.Web.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -91,9 +96,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telerik.WinControls, Version=2015.1.225.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
-    <Reference Include="Telerik.WinControls.UI, Version=2015.1.225.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="TelerikCommon, Version=2015.1.225.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add_Diet_Plan.cs">
@@ -127,6 +129,12 @@
       <DependentUpon>Change_Password.cs</DependentUpon>
     </Compile>
     <Compile Include="Client.cs" />
+    <Compile Include="Client_Add_Progress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client_Add_Progress.Designer.cs">
+      <DependentUpon>Client_Add_Progress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +146,12 @@
     </Compile>
     <Compile Include="client_profile.Designer.cs">
       <DependentUpon>client_profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client_Progress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client_Progress.Designer.cs">
+      <DependentUpon>Client_Progress.cs</DependentUpon>
     </Compile>
     <Compile Include="Create_Client_Form.cs">
       <SubType>Form</SubType>
@@ -247,11 +261,17 @@
     <EmbeddedResource Include="Change_Password.resx">
       <DependentUpon>Change_Password.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client_Add_Progress.resx">
+      <DependentUpon>Client_Add_Progress.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client_Edit.resx">
       <DependentUpon>Client_Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="client_profile.resx">
       <DependentUpon>client_profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client_Progress.resx">
+      <DependentUpon>Client_Progress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Create_Client_Form.resx">
       <DependentUpon>Create_Client_Form.cs</DependentUpon>
@@ -306,6 +326,9 @@
     <EmbeddedResource Include="Workout_Add.resx">
       <DependentUpon>Workout_Add.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="LG_Fitness_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

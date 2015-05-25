@@ -86,7 +86,14 @@ namespace FitNess3
             Show_Plan_Content sp = new Show_Plan_Content();
             //string planid = "7";
             string planid = listbox_plan.GetItemText(listbox_plan.SelectedItem);
-            sp.showInherit(planid);
+            if (planid != "")
+            {
+                sp.showInherit(planid);
+            }
+            else
+            {
+                MessageBox.Show("Client Does Not Have A Diet Plan!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -94,7 +101,13 @@ namespace FitNess3
             Show_Workout_Content sw = new Show_Workout_Content();
             //string planid = "7";
             string workoutid = listBox1.GetItemText(listBox1.SelectedItem);
-            sw.showInherit(workoutid);
+            if (workoutid != "")
+            {
+                sw.showInherit(workoutid);
+            }
+            else {
+                MessageBox.Show("Client Does Not Have A Workout Plan!", "Error",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -109,6 +122,13 @@ namespace FitNess3
             Client_Edit editclient = new Client_Edit();
             string clientid = listbox_clientID.GetItemText(listbox_clientID.SelectedItem).ToString();
             editclient.openMe(clientid);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string clientid = listbox_clientID.GetItemText(listbox_clientID.SelectedItem).ToString();
+            Client_Progress progress = new Client_Progress(clientid);
+            progress.Show();
         }
 
     }

@@ -224,5 +224,11 @@ namespace FitNess3
             profile.OpenMe(213);
         }
 
+        private void button1_Click_6(object sender, EventArgs e)
+        {
+            Client_Add_Progress tempadd = new Client_Add_Progress("205");
+            tempadd.Show();
+        }
+
     }
 }
