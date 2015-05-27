@@ -51,27 +51,32 @@ namespace FitNess3
                 //FINISH FONT
 
                 //ADDING TABLE
-                PdfPTable table = new PdfPTable(2);
+                PdfPTable table = new PdfPTable(3);
                 PdfPCell foodcell = new PdfPCell(new Phrase("FOOD", font5));
                 PdfPCell timecell = new PdfPCell(new Phrase("TIME", font5));
+                PdfPCell notescell = new PdfPCell(new Phrase("NOTES", font5));
 
                 foodcell.PaddingBottom = 3f;
                 timecell.PaddingBottom = 3f;
+                notescell.PaddingBottom = 3f;
 
                 foodcell.Colspan = 1;
                 timecell.Colspan = 1;
+                notescell.Colspan = 1;
                 table.AddCell(foodcell);
                 table.AddCell(timecell);
+                table.AddCell(notescell);
 
                 foreach (DataRow r in datatable.Rows) {
 
                     table.AddCell(new Phrase(r[0].ToString(), font5));
                     table.AddCell(new Phrase(r[1].ToString(), font5));
+                    table.AddCell(new Phrase(r[2].ToString(), font5));
                 }
                 Paragraph tablep = new Paragraph();
 
 
-                float[] widths = new float[] {50f,10f};
+                float[] widths = new float[] {40f,15f, 20f};
                 table.SetWidths(widths);
 
                 tablep.Add(table);
@@ -97,6 +102,7 @@ namespace FitNess3
             catch (Exception exc) {
                 System.Windows.Forms.MessageBox.Show(exc.ToString());
             }
+
         }
 
 

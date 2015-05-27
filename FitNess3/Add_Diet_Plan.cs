@@ -23,7 +23,7 @@ namespace FitNess3
 
         private void Add_Diet_Plan_Load(object sender, EventArgs e)
         {
-
+            dateTimePicker1.CustomFormat = "hh:mm";
         }
 
         private void button1_Click(object sender, EventArgs e)

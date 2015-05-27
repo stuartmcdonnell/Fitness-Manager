@@ -137,6 +137,12 @@ namespace FitNess3
             addprogress.Show();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Client_Progress progress = new Client_Progress(clientid.ToString());
+            progress.Show();
+        }
+
 
 
     }//BASE

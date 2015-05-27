@@ -101,7 +101,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::FitNess3.Properties.Resources.profile_default;
-            this.pictureBox1.Location = new System.Drawing.Point(169, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(248, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(141, 142);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -114,7 +114,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 190);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(298, 121);
+            this.listBox1.Size = new System.Drawing.Size(377, 121);
             this.listBox1.TabIndex = 7;
             // 
             // label7
@@ -128,7 +128,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(210, 317);
+            this.button1.Location = new System.Drawing.Point(289, 317);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 30);
             this.button1.TabIndex = 9;
@@ -138,20 +138,21 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 124);
+            this.button2.Location = new System.Drawing.Point(131, 317);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 30);
             this.button2.TabIndex = 10;
             this.button2.Text = "Show Progress";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(12, 317);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 30);
+            this.button3.Size = new System.Drawing.Size(113, 30);
             this.button3.TabIndex = 11;
-            this.button3.Text = "Add Progress";
+            this.button3.Text = "Add Progress Point";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -159,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 353);
+            this.ClientSize = new System.Drawing.Size(401, 353);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

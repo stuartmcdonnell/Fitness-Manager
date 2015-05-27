@@ -226,8 +226,10 @@ namespace FitNess3
 
         private void button1_Click_6(object sender, EventArgs e)
         {
-            Client_Add_Progress tempadd = new Client_Add_Progress("205");
-            tempadd.Show();
+            //Client_Add_Progress tempadd = new Client_Add_Progress("205");
+           // tempadd.Show();
+            Client_Progress progress = new Client_Progress("205");
+            progress.Show();
         }
 
     }
