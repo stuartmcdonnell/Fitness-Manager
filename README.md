@@ -1,4 +1,4 @@
-# README #
+# FitNess Manager#
 
 
 ### Beta Tester? (B6.0) ###
