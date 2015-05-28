@@ -54,7 +54,6 @@ namespace FitNess3
 
                 listBox4.Visible = false;
                 label4.Visible = false;
-                this.Width = 310;
             }
             catch (Exception exc)
             {
@@ -93,7 +92,7 @@ namespace FitNess3
 
                 listBox4.Visible = false;
                 label4.Visible = false;
-                this.Width = 310;
+                
             }
             catch (Exception exc)
             {
@@ -136,7 +135,7 @@ namespace FitNess3
 
                 listBox4.Visible = true;
                 label4.Visible = true;
-                this.Width = 435;
+
 
             }
             catch (Exception exc)
@@ -174,19 +173,25 @@ namespace FitNess3
             if (checkBox1.Checked == true) {
                 checkBox2.Checked = false;
                 listtype = "without";
+                this.Width = 310;
                 getClientsWithNoPlan();
+                
             }
             else if (checkBox2.Checked == true)
             {
                 checkBox1.Checked = false;
                 listtype = "with";
+                this.Width = this.Width + (listBox4.Width + 10);
                 getClientsPlans();
+                
             }
             else {
                 checkBox1.Checked = false;
                 checkBox2.Checked = false;
                 listtype = "all";
+                this.Width = 310;
                 getData();
+                
             }
 
             return listtype;
@@ -212,7 +217,7 @@ namespace FitNess3
                 try
                 {
                     c.connect();
-                    string stm = ("DELETE FROM `fitdb`.`clients` WHERE `clients`.`client_id` = "+selected);
+                    string stm = ("DELETE FROM `clients` WHERE `clients`.`client_id` = "+selected);
                     MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Client Removed!", "Client Removed");
@@ -228,6 +233,13 @@ namespace FitNess3
             else { }
 
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            client_profile profile = new client_profile();
+            int clientid = Convert.ToInt32(listBox1.SelectedValue.ToString());
+            profile.OpenMe(clientid);
         }
 
 

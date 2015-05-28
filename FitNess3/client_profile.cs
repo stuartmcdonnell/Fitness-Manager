@@ -20,6 +20,11 @@ namespace FitNess3
         string planname { get; set; }
         string workoutname { get; set; }
         string picture_directory { get; set; }
+        string weight { get; set; }
+        string height { get; set; }
+        string bodyfat { get; set; }
+        string shortgoals { get; set; }
+        string longgoals { get; set; }
 
         public client_profile()
         {
@@ -60,7 +65,7 @@ namespace FitNess3
             {
                 Search_Results_Client sr = new Search_Results_Client();
                 c.connect();
-                string stm = ("SELECT clients.client_id, clients.forename,clients.surname,clients.picture_directory, plans.plan_name ,workouts.name FROM clients LEFT JOIN plans ON clients.plan_id=plans.plan_id  LEFT JOIN workouts ON clients.workout_id=workouts.workout_id WHERE clients.client_id =" + clientid);
+                string stm = ("SELECT clients.client_id, clients.forename,clients.surname,clients.picture_directory,clients.weight,clients.height,clients.bodyfat,clients.shortgoals,clients.longgoals, plans.plan_name ,workouts.name FROM clients LEFT JOIN plans ON clients.plan_id=plans.plan_id  LEFT JOIN workouts ON clients.workout_id=workouts.workout_id WHERE clients.client_id =" + clientid);
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                 MySqlDataReader dr = cmd.ExecuteReader();
 
@@ -75,6 +80,23 @@ namespace FitNess3
                     this.workoutname = dr["name"].ToString();
                     label6.Text = workoutname;
                     this.picture_directory = dr["picture_directory"].ToString();
+
+                    this.weight = dr["weight"].ToString();
+                    label11.Text = weight;
+
+                    this.height = dr["height"].ToString();
+                    label12.Text = height;
+
+                    this.bodyfat = dr["bodyfat"].ToString();
+                    label13.Text = bodyfat;
+
+                    this.shortgoals = dr["shortgoals"].ToString();
+                    richTextBox1.Text = shortgoals;
+                    richTextBox1.ReadOnly = true;
+
+                    this.longgoals = dr["longgoals"].ToString();
+                    richTextBox2.Text = longgoals;
+                    richTextBox2.ReadOnly = true;
                 }
 
                 dr.Dispose();
@@ -135,12 +157,18 @@ namespace FitNess3
         {
             Client_Add_Progress addprogress = new Client_Add_Progress(clientid.ToString());
             addprogress.Show();
+            this.Dispose();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Client_Progress progress = new Client_Progress(clientid.ToString());
             progress.Show();
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
 
 

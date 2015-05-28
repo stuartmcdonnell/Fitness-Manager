@@ -274,8 +274,14 @@ namespace FitNess3
             }
             else
             {
-                generatePDF gpdf = new generatePDF();
-                gpdf.ExportToPdf(this.getData().Tables[0], path, getTotalCalories(), getTotalProtein(), getTotalCarbs(), getTotalFat());
+                if (comboBox1.SelectedValue != null)
+                {
+                    generatePDF gpdf = new generatePDF();
+                    gpdf.ExportToPdf(this.getData().Tables[0], path, getTotalCalories(), getTotalProtein(), getTotalCarbs(), getTotalFat());
+                }
+                else {
+                    MessageBox.Show("No Plan Selected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             Cursor.Current = Cursors.Default;
         }

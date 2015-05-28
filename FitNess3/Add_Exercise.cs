@@ -32,7 +32,7 @@ namespace FitNess3
             {
                 DatabaseConnection c = new DatabaseConnection();
                 c.connect();
-                string stm = ("INSERT INTO `fitdb`.`exercises` (`exercise_id`, `name`, `description`) VALUES (NULL, '" + textBox1.Text + "', '" + richTextBox1.Text + "');");
+                string stm = ("INSERT INTO `exercises` (`exercise_id`, `name`, `description`) VALUES (NULL, '" + textBox1.Text + "', '" + richTextBox1.Text + "');");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Exercise Added!");

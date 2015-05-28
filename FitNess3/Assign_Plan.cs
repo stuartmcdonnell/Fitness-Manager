@@ -78,7 +78,7 @@ namespace FitNess3
             {
                 DatabaseConnection c = new DatabaseConnection();
                 c.connect();
-                string stm = ("UPDATE  `fitdb`.`clients` SET  `plan_id` =  '" + comboBox2.SelectedValue.ToString() + "' WHERE  `clients`.`client_id` =" + comboBox1.SelectedValue.ToString() + ";");
+                string stm = ("UPDATE  `clients` SET  `plan_id` =  '" + comboBox2.SelectedValue.ToString() + "' WHERE  `clients`.`client_id` =" + comboBox1.SelectedValue.ToString() + ";");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                 cmd.ExecuteNonQuery();
                 c.closeConnection();
@@ -96,7 +96,7 @@ namespace FitNess3
             {
                 DatabaseConnection c = new DatabaseConnection();
                 c.connect();
-                string stm = ("UPDATE  `fitdb`.`clients` SET  `workout_id` =  '" + comboBox3.SelectedValue.ToString() + "' WHERE  `clients`.`client_id` =" + comboBox1.SelectedValue.ToString() + ";");
+                string stm = ("UPDATE  `clients` SET  `workout_id` =  '" + comboBox3.SelectedValue.ToString() + "' WHERE  `clients`.`client_id` =" + comboBox1.SelectedValue.ToString() + ";");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                 cmd.ExecuteNonQuery();
                 c.closeConnection();

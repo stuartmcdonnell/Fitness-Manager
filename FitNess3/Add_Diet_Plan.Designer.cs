@@ -93,11 +93,12 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(266, 21);
             this.comboBox1.TabIndex = 4;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(17, 200);
+            this.listBox1.Location = new System.Drawing.Point(17, 313);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(199, 173);
             this.listBox1.TabIndex = 5;
@@ -105,7 +106,7 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(222, 200);
+            this.listBox2.Location = new System.Drawing.Point(222, 313);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(128, 173);
             this.listBox2.TabIndex = 6;
@@ -251,7 +252,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 181);
+            this.label6.Location = new System.Drawing.Point(17, 294);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 22;
@@ -260,7 +261,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(219, 181);
+            this.label7.Location = new System.Drawing.Point(219, 294);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 13);
             this.label7.TabIndex = 23;
@@ -278,7 +279,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(17, 399);
+            this.richTextBox1.Location = new System.Drawing.Point(18, 197);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(332, 83);
             this.richTextBox1.TabIndex = 25;
@@ -287,7 +288,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 383);
+            this.label8.Location = new System.Drawing.Point(17, 181);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 26;
@@ -296,7 +297,7 @@
             // listBox3
             // 
             this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(366, 200);
+            this.listBox3.Location = new System.Drawing.Point(366, 313);
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(272, 173);
             this.listBox3.TabIndex = 27;
@@ -304,18 +305,19 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(266, 379);
+            this.checkBox1.Location = new System.Drawing.Point(268, 294);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(84, 17);
             this.checkBox1.TabIndex = 28;
             this.checkBox1.Text = "Show Notes";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(363, 181);
+            this.label9.Location = new System.Drawing.Point(363, 294);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 29;

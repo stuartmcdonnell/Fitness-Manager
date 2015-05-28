@@ -73,7 +73,7 @@ namespace FitNess3
                 {
                     DatabaseConnection c = new DatabaseConnection();
                     c.connect();
-                    string stm = ("DELETE FROM `fitdb`.`exercises` WHERE `exercises`.`exercise_id` = " + selected);
+                    string stm = ("DELETE FROM `exercises` WHERE `exercises`.`exercise_id` = " + selected);
                     MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Exercise Removed!", "Exercise Removed");

@@ -29,7 +29,7 @@ namespace FitNess3
             try{
             copyPicture();
             c.connect();
-            string stm = ("INSERT INTO `clients`(`forename`, `surname`,`picture_directory`) VALUES ('" + forename_textbox.Text + "','" + surname_textbox.Text + "', '" + filename + "')");
+            string stm = ("INSERT INTO `clients` (`client_id`, `forename`, `surname`, `picture_directory`, `weight`, `height`, `bodyfat`, `shortgoals`, `longgoals`) VALUES (NULL, '"+forename_textbox.Text+"', '"+surname_textbox.Text+"', '"+filename+"', '"+textBox1.Text+"', '"+textBox2.Text+"', '"+textBox3.Text+"', '"+richTextBox1.Text+"', '"+richTextBox2.Text+"');");
             MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
             cmd.ExecuteNonQuery();
             MessageBox.Show("Client Added!", "Client Added");

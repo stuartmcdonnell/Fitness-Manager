@@ -51,7 +51,15 @@ namespace FitNess3
                 a.Fill(searchSet);
                 a.Dispose();
 
-                sr.displayResults(searchSet);
+                if (searchSet.Tables[0].Rows.Count != 0)
+                {
+                    sr.displayResults(searchSet);
+                }
+                else {
+                    MessageBox.Show("No Results Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                
 
                 forename_textbox.Clear();
                 surname_textbox.Clear();

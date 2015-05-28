@@ -36,7 +36,7 @@ namespace FitNess3
             {
                 DatabaseConnection c = new DatabaseConnection();
                 c.connect();
-                string stm = ("INSERT INTO `fitdb`.`plans` (`plan_name`) VALUES ('" + textBox1.Text + "');");
+                string stm = ("INSERT INTO `plans` (`plan_name`) VALUES ('" + textBox1.Text + "');");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Plan Added!");
@@ -56,7 +56,7 @@ namespace FitNess3
             try
             {
                 MySqlDataAdapter a = new MySqlDataAdapter();
-                string stm = ("INSERT INTO `fitdb`.`plan_foods` (`plan_id`, `food_id`, `time`, `notes`) VALUES ('" + comboBox2.SelectedValue.ToString() + "', '" + comboBox1.SelectedValue.ToString() + "', '" + dateTimePicker1.Value.ToLongTimeString() + "', '"+richTextBox1.Text+"');");
+                string stm = ("INSERT INTO `plan_foods` (`plan_id`, `food_id`, `time`, `notes`) VALUES ('" + comboBox2.SelectedValue.ToString() + "', '" + comboBox1.SelectedValue.ToString() + "', '" + dateTimePicker1.Value.ToLongTimeString() + "', '"+richTextBox1.Text+"');");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
 
                 a.SelectCommand = cmd;
@@ -315,31 +315,44 @@ namespace FitNess3
 
         private void removeFood() {
 
-            string selected = listBox2.SelectedValue.ToString();
-            var confirm = MessageBox.Show("Are You Sure You Wish To Delete Food, ID: " + selected, "Confirm Deletion", MessageBoxButtons.YesNo);
 
-            if (confirm == DialogResult.Yes)
+
+            if (listBox2.SelectedValue != null)
             {
+                string selected = listBox2.SelectedValue.ToString();
+                var confirm = MessageBox.Show("Are You Sure You Wish To Delete Food, ID: " + selected, "Confirm Deletion", MessageBoxButtons.YesNo);
 
-                try
+                if (confirm == DialogResult.Yes)
                 {
-                    DatabaseConnection c = new DatabaseConnection();
-                    c.connect();
-                    string stm = ("DELETE FROM `fitdb`.`plan_foods` WHERE `plan_foods`.`plan_food_id` =" + selected);
-                    MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Food Removed!", "Food Removed");
-                    c.closeConnection();
-                    getPlanFoods();
-                    setTotals();
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show(exc.ToString());
-                }
 
+                    try
+                    {
+                        DatabaseConnection c = new DatabaseConnection();
+                        c.connect();
+                        string stm = ("DELETE FROM `plan_foods` WHERE `plan_foods`.`plan_food_id` =" + selected);
+                        MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Food Removed!", "Food Removed");
+                        c.closeConnection();
+                        getPlanFoods();
+                        setTotals();
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show(exc.ToString());
+                    }
+
+                }
+                else { }
             }
-            else { }
+            else {
+
+                MessageBox.Show("No Food Selected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+            }
+
+
+
             
 
         
@@ -355,11 +368,20 @@ namespace FitNess3
         {
             if (checkBox1.Checked == true)
             {
-                this.Width = 660;
+                this.Width = this.Width+(listBox3.Width+10);
             }
             else {
                 this.Width = 380;
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
     }//BASE

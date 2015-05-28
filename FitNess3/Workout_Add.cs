@@ -64,7 +64,7 @@ namespace FitNess3
             {
                 DatabaseConnection c = new DatabaseConnection();
                 c.connect();
-                string stm = ("INSERT INTO `fitdb`.`workouts` (`name`) VALUES ('" + textBox1.Text + "');");
+                string stm = ("INSERT INTO `workouts` (`name`) VALUES ('" + textBox1.Text + "');");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Workout Added!");
@@ -136,7 +136,7 @@ namespace FitNess3
             try
             {
                 MySqlDataAdapter a = new MySqlDataAdapter();
-                string stm = ("INSERT INTO `fitdb`.`workouts_exc` (`workout_id`, `exercise_id`, `notes`) VALUES ('"+comboBox2.SelectedValue.ToString()+"', '"+comboBox1.SelectedValue.ToString()+"', '"+richTextBox1.Text+"');");
+                string stm = ("INSERT INTO `workouts_exc` (`workout_id`, `exercise_id`, `notes`) VALUES ('"+comboBox2.SelectedValue.ToString()+"', '"+comboBox1.SelectedValue.ToString()+"', '"+richTextBox1.Text+"');");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
 
                 a.SelectCommand = cmd;
@@ -162,31 +162,45 @@ namespace FitNess3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string selected = listBox2.SelectedValue.ToString();
-            var confirm = MessageBox.Show("Are You Sure You Wish To Delete Exercise, ID: " + selected, "Confirm Deletion", MessageBoxButtons.YesNo);
 
-            if (confirm == DialogResult.Yes)
+            if (listBox2.SelectedValue != null)
             {
 
-                try
+                string selected = listBox2.SelectedValue.ToString();
+                var confirm = MessageBox.Show("Are You Sure You Wish To Delete Exercise, ID: " + selected, "Confirm Deletion", MessageBoxButtons.YesNo);
+
+                if (confirm == DialogResult.Yes)
                 {
-                    DatabaseConnection c = new DatabaseConnection();
-                    c.connect();
-                    string stm = ("DELETE FROM `fitdb`.`workouts_exc` WHERE `workouts_exc`.`workout_exc_id` = " + selected);
-                    MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exercise Removed!", "Exercise Removed");
-                    c.closeConnection();
-                    getWorkoutExc();
+
+                    try
+                    {
+                        DatabaseConnection c = new DatabaseConnection();
+                        c.connect();
+                        string stm = ("DELETE FROM `workouts_exc` WHERE `workouts_exc`.`workout_exc_id` = " + selected);
+                        MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Exercise Removed!", "Exercise Removed");
+                        c.closeConnection();
+                        getWorkoutExc();
+
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show(exc.ToString());
+                    }
 
                 }
-                catch (Exception exc)
-                {
-                    MessageBox.Show(exc.ToString());
-                }
+                else { }
 
             }
-            else { }
+            else {
+
+                MessageBox.Show("No Exercise Selected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+
+
         }
 
 

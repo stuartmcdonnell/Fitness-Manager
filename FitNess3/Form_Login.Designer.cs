@@ -96,7 +96,7 @@
             this.MinimizeBox = false;
             this.Name = "Form_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Please Log In";
+            this.Text = "Log In";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Login_FormClosing);
             this.Load += new System.EventHandler(this.Form_Login_Load);
             this.ResumeLayout(false);

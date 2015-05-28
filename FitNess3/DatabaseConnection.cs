@@ -12,7 +12,7 @@ namespace FitNess3
 
         MySqlConnection connection = new MySqlConnection(
        "Server=107.180.3.229;" +
-       "Database=fitdb;" +
+       "Database=fitdb_publish;" +
        "Uid=fitdb_user;" +
        "password=123456;"
        );

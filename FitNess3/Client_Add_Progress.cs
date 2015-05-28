@@ -15,6 +15,7 @@ namespace FitNess3
     public partial class Client_Add_Progress : Form
     {
 
+
         string clientid { get; set; }
         string fullname { get; set; }
         string picture_directory { get; set; }
@@ -24,7 +25,7 @@ namespace FitNess3
 
         string filename;
         string filepath;
-
+        bool newimage = false;
 
         public Client_Add_Progress(string clientid)
         {
@@ -62,12 +63,14 @@ namespace FitNess3
                 DialogResult result = MessageBox.Show("This Will Overwrite Any Picture With The Same Name!" + Environment.NewLine + "Continue?", "Warngin!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
+                    newimage = true;
                     System.IO.File.Copy(this.filepath, "UserPictures/" + this.filename, true);
                 }
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
+                //MessageBox.Show("File Copy Error"+Environment.NewLine+"This Error is Usually Nothing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -140,7 +143,7 @@ namespace FitNess3
             {
                 DatabaseConnection c = new DatabaseConnection();
                 c.connect();
-                string stm = ("INSERT INTO `fitdb`.`client_progress` (`progress_id`, `client_id`, `date`, `picture`, `weight`, `bodyfat`) VALUES (NULL, '"+this.clientid+"', '"+DateTime.Today.Date.ToShortDateString()+"', '"+this.picture_directory+"', '"+this.weight+"', '"+this.bodyfat+"');");
+                string stm = ("INSERT INTO `client_progress` (`progress_id`, `client_id`, `date`, `picture`, `weight`, `bodyfat`) VALUES (NULL, '"+this.clientid+"', '"+DateTime.Today.Date.ToShortDateString()+"', '"+this.picture_directory+"', '"+this.weight+"', '"+this.bodyfat+"');");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                 cmd.ExecuteNonQuery();
 
@@ -161,7 +164,16 @@ namespace FitNess3
                 try
                 {
                     c.connect();
-                    string stm = ("UPDATE `fitdb`.`clients` SET `picture_directory` = '"+this.filename+"', `weight` = '"+this.textBox1.Text+"', `bodyfat` = '"+textBox3.Text+"' WHERE `clients`.`client_id` = "+this.clientid+";");
+                    string stm="";
+                    if (newimage)
+                    {
+                        stm = ("UPDATE `clients` SET `picture_directory` = '" + this.filename + "', `weight` = '" + this.textBox1.Text + "', `bodyfat` = '" + textBox3.Text + "' WHERE `clients`.`client_id` = " + this.clientid + ";");
+                    }
+                    else {
+                        stm = ("UPDATE `clients` SET `weight` = '" + this.textBox1.Text + "', `bodyfat` = '" + textBox3.Text + "' WHERE `clients`.`client_id` = " + this.clientid + ";");
+                    }
+
+                   
                     MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                     cmd.ExecuteNonQuery();
                     c.closeConnection();
@@ -181,6 +193,9 @@ namespace FitNess3
         {
             addCurrent();
             updateCurrent();
+            this.Dispose();
+            client_profile profile = new client_profile();
+            profile.OpenMe(Convert.ToInt32(clientid));
         }
 
 

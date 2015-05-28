@@ -232,5 +232,11 @@ namespace FitNess3
             progress.Show();
         }
 
+        private void button1_Click_7(object sender, EventArgs e)
+        {
+            Client_Progress progress = new Client_Progress("205");
+            progress.Show();
+        }
+
     }
 }

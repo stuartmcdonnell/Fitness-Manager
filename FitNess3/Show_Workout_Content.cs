@@ -108,8 +108,14 @@ namespace FitNess3
                 Console.WriteLine("Path Selection Terminated by user");
             }
             else {
-                generateWorkoutPDF gpdf = new generateWorkoutPDF();
-                gpdf.ExportToPdf(this.getData().Tables[0], path);
+                if (comboBox1.SelectedValue != null) {
+                    generateWorkoutPDF gpdf = new generateWorkoutPDF();
+                    gpdf.ExportToPdf(this.getData().Tables[0], path);
+                }
+                else
+                {
+                    MessageBox.Show("No Workout Selected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             Cursor.Current = Cursors.Default;
         }

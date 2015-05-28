@@ -21,6 +21,13 @@ namespace FitNess3
         private string filepath { get; set; }
         private string filename { get; set; }
         private string picture_directory { get; set; }
+        string weight { get; set; }
+        string height { get; set; }
+        string bodyfat { get; set; }
+        string shortgoals { get; set; }
+        string longgoals { get; set; }
+
+        bool newimage = false;
 
         public Client_Edit()
         {
@@ -104,9 +111,14 @@ namespace FitNess3
                     this.forename = dr["forename"].ToString();
                     this.surname = dr["surname"].ToString();
                     this.picture_directory = dr["picture_directory"].ToString();
+                    this.shortgoals = dr["shortgoals"].ToString();
+                    this.longgoals = dr["longgoals"].ToString();
 
                     textBox1.Text = forename;
                     textBox2.Text = surname;
+
+                    richTextBox1.Text = shortgoals;
+                    richTextBox2.Text = longgoals;
 
                 }
 
@@ -156,11 +168,12 @@ namespace FitNess3
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     System.IO.File.Copy(this.filepath, "UserPictures/" + this.filename, true);
+                    newimage = true;
                 }
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.ToString());
+               // MessageBox.Show(exc.ToString());
             }
         }
 
@@ -184,8 +197,19 @@ namespace FitNess3
             DatabaseConnection c = new DatabaseConnection();
             try
             {
+
+                string stm = "";
+
+                if (newimage)
+                {
+                    stm = ("UPDATE `clients` SET `forename` = '" + textBox1.Text + "', `surname` = '" + textBox2.Text + "', `picture_directory` = '" + filename + "', `shortgoals` = '" + richTextBox1.Text + "', `longgoals` = '" + richTextBox2.Text + "' WHERE `clients`.`client_id` =" + clientid);
+                }
+                else {
+                    stm = ("UPDATE `clients` SET `forename` = '" + textBox1.Text + "', `surname` = '" + textBox2.Text + "', `shortgoals` = '" + richTextBox1.Text + "', `longgoals` = '" + richTextBox2.Text + "' WHERE `clients`.`client_id` =" + clientid);
+                }
+
                 c.connect();
-                string stm = ("UPDATE `fitdb`.`clients` SET `forename` = '" + textBox1.Text + "', `surname` = '" + textBox2.Text + "', `picture_directory` = '" + filename + "' WHERE `clients`.`client_id` =" + clientid);
+                
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Client Edited!", "Client Edited");
@@ -205,8 +229,9 @@ namespace FitNess3
             DatabaseConnection c = new DatabaseConnection();
             try
             {
+
                 c.connect();
-                string stm = ("INSERT INTO `fitdb`.`client_dislikes` (`client_dislikes_id`, `food_id`, `client_id`) VALUES (NULL, '"+comboBox1.SelectedValue.ToString()+"', '"+clientid+"');");
+                string stm = ("INSERT INTO `client_dislikes` (`client_dislikes_id`, `food_id`, `client_id`) VALUES (NULL, '"+comboBox1.SelectedValue.ToString()+"', '"+clientid+"');");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                 cmd.ExecuteNonQuery();
                 c.closeConnection();
@@ -225,7 +250,7 @@ namespace FitNess3
             try
             {
                 c.connect();
-                string stm = ("DELETE FROM `fitdb`.`client_dislikes` WHERE `client_dislikes`.`client_dislikes_id` = "+listBox1.SelectedValue.ToString());
+                string stm = ("DELETE FROM `client_dislikes` WHERE `client_dislikes`.`client_dislikes_id` = "+listBox1.SelectedValue.ToString());
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                 cmd.ExecuteNonQuery();
                 c.closeConnection();

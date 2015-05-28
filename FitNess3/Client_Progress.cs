@@ -21,6 +21,11 @@ namespace FitNess3
         string[] images = { };
         string[] dates = { };
 
+        string firstweight;
+        string lastweight;
+        string firstbodyfat;
+        string lastbodyfat;
+
 
         public Client_Progress(string clientid)
         {
@@ -30,12 +35,83 @@ namespace FitNess3
 
         private void Client_Progress_Load(object sender, EventArgs e)
         {
-            this.Text = "Client Progress Report";
+        this.Text = "Client Progress Report";
             getClient();
+            getDifference();
         }
 
 
+        private void getDifference() {
 
+            DatabaseConnection c = new DatabaseConnection();
+
+            try
+            {
+                Search_Results_Client sr = new Search_Results_Client();
+                c.connect();
+                string stm = ("select weight,bodyfat from client_progress WHERE client_id="+clientid+" order by progress_id asc limit 1;");
+                MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+
+                    firstweight = dr["weight"].ToString();
+                    firstbodyfat = dr["bodyfat"].ToString();
+                    
+
+                }
+
+                dr.Dispose();
+                c.closeConnection();
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+                c.closeConnection();
+            }
+
+            try
+            {
+                Search_Results_Client sr = new Search_Results_Client();
+                c.connect();
+                string stm = ("select weight,bodyfat from client_progress WHERE client_id=" + clientid + " order by progress_id desc limit 1;");
+                MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+
+                    lastweight = dr["weight"].ToString();
+                    lastbodyfat = dr["bodyfat"].ToString();
+                    
+
+                }
+
+                dr.Dispose();
+                c.closeConnection();
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+                c.closeConnection();
+            }
+
+
+            int intfirstweight = Convert.ToInt32(firstweight);
+            int intlastweight = Convert.ToInt32(lastweight);
+
+            int intfirstbodyfat = Convert.ToInt32(firstbodyfat);
+            int intlastbodyfat = Convert.ToInt32(lastbodyfat);
+
+
+
+            label10.Text = ("Weight Change: "+(intlastweight - intfirstweight).ToString()+"Kg");
+            label11.Text = ("Bodyfat Change: "+(intlastbodyfat - intfirstbodyfat).ToString()+"%");
+        
+        }
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,8 +152,10 @@ namespace FitNess3
                 listBox4.ValueMember = "date";
                 listBox4.DisplayMember = "bodyfat";
 
+                label10.Text = ("Weight Change: ");
 
-                images = ds.Tables[0].AsEnumerable().Select(r => r.Field<string>("picture")).ToArray();
+
+                    images = ds.Tables[0].AsEnumerable().Select(r => r.Field<string>("picture")).ToArray();
                 dates = ds.Tables[0].AsEnumerable().Select(r => r.Field<string>("date")).ToArray();
 
                 int length = images.Length;
@@ -106,7 +184,7 @@ namespace FitNess3
                 ArrayList selectedimages = new ArrayList();
                 ArrayList selecteddates = new ArrayList();
 
-                MessageBox.Show("Bottom: " + bottom + Environment.NewLine + "Top: " + top);
+
                 for (int i = bottom; i <= top; i++)
                 {
 
@@ -119,18 +197,17 @@ namespace FitNess3
 
                 }
 
-                MessageBox.Show(selectedimages.Count.ToString());
 
                 for (int inner = 0; inner < selectedimages.Count; inner++)
                 {
                     switch (inner)
                     {
-                        case 0: pictureBox1.Image = Image.FromFile(@"UserPictures\\" + selectedimages[0].ToString()); label1.Text=selecteddates[0].ToString(); break;
-                        case 1: pictureBox2.Image = Image.FromFile(@"UserPictures\\" + selectedimages[1].ToString()); label2.Text = selecteddates[1].ToString(); break;
-                        case 2: pictureBox3.Image = Image.FromFile(@"UserPictures\\" + selectedimages[2].ToString()); label3.Text = selecteddates[2].ToString(); break;
-                        case 3: pictureBox4.Image = Image.FromFile(@"UserPictures\\" + selectedimages[3].ToString()); label4.Text = selecteddates[3].ToString(); break;
-                        case 4: pictureBox5.Image = Image.FromFile(@"UserPictures\\" + selectedimages[4].ToString()); label5.Text = selecteddates[4].ToString(); break;
-                        case 5: pictureBox6.Image = Image.FromFile(@"UserPictures\\" + selectedimages[5].ToString()); label6.Text = selecteddates[5].ToString(); break;
+                        case 0: pictureBox6.Image = Image.FromFile(@"UserPictures\\" + selectedimages[0].ToString()); label6.Text=selecteddates[0].ToString(); break;
+                        case 1: pictureBox5.Image = Image.FromFile(@"UserPictures\\" + selectedimages[1].ToString()); label5.Text = selecteddates[1].ToString(); break;
+                        case 2: pictureBox4.Image = Image.FromFile(@"UserPictures\\" + selectedimages[2].ToString()); label4.Text = selecteddates[2].ToString(); break;
+                        case 3: pictureBox3.Image = Image.FromFile(@"UserPictures\\" + selectedimages[3].ToString()); label3.Text = selecteddates[3].ToString(); break;
+                        case 4: pictureBox2.Image = Image.FromFile(@"UserPictures\\" + selectedimages[4].ToString()); label2.Text = selecteddates[4].ToString(); break;
+                        case 5: pictureBox1.Image = Image.FromFile(@"UserPictures\\" + selectedimages[5].ToString()); label1.Text = selecteddates[5].ToString(); break;
                     }
                 }
 
@@ -138,7 +215,8 @@ namespace FitNess3
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
+                MessageBox.Show("Missing Images!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 c.closeConnection();
             }
 
