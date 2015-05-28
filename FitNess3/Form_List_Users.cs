@@ -14,7 +14,8 @@ namespace FitNess3
     public partial class Form_List_Users : Form
     {
         DatabaseConnection c = new DatabaseConnection();
-
+        int listbox_width;
+        int initial_width;
         public Form_List_Users()
         {
             InitializeComponent();
@@ -23,6 +24,8 @@ namespace FitNess3
         private void Form_List_Users_Load(object sender, EventArgs e)
         {
             getData();
+            listbox_width = listBox4.Width;
+            initial_width = this.Width;
         }
 
         //ALL CLIENTS
@@ -157,45 +160,8 @@ namespace FitNess3
             this.Dispose();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            determineList();
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            determineList();
-        }
 
 
-        private String determineList() {
-            String listtype="all";
-            if (checkBox1.Checked == true) {
-                checkBox2.Checked = false;
-                listtype = "without";
-                this.Width = 310;
-                getClientsWithNoPlan();
-                
-            }
-            else if (checkBox2.Checked == true)
-            {
-                checkBox1.Checked = false;
-                listtype = "with";
-                this.Width = this.Width + (listBox4.Width + 10);
-                getClientsPlans();
-                
-            }
-            else {
-                checkBox1.Checked = false;
-                checkBox2.Checked = false;
-                listtype = "all";
-                this.Width = 310;
-                getData();
-                
-            }
-
-            return listtype;
-        }
 
 
 
@@ -222,7 +188,6 @@ namespace FitNess3
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Client Removed!", "Client Removed");
                     c.closeConnection();
-                    determineList();
                 }
                 catch (Exception exc)
                 {
@@ -240,6 +205,31 @@ namespace FitNess3
             client_profile profile = new client_profile();
             int clientid = Convert.ToInt32(listBox1.SelectedValue.ToString());
             profile.OpenMe(clientid);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked) { 
+                getClientsPlans();
+                this.Width += (listbox_width+10);
+            }
+                
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked) {
+                getClientsWithNoPlan();
+                this.Width = initial_width;
+            }
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton3.Checked) {
+                getData();
+                this.Width = initial_width;
+            }
         }
 
 

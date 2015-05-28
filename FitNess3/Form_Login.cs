@@ -26,6 +26,13 @@ namespace FitNess3
             InitializeComponent();
         }
 
+
+        public void downloadXML() { 
+        
+        
+        
+        }
+
         private void button1_Click(object sender, EventArgs e){
             Cursor.Current = Cursors.WaitCursor;
 
