@@ -49,7 +49,7 @@ namespace FitNess3
             catch (Exception exc)
             {
                 MessageBox.Show("Search Returned No Results!", "Error");
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
                 c.closeConnection();
             }
         }

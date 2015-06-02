@@ -123,7 +123,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 155);
+            this.label3.Location = new System.Drawing.Point(14, 149);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 8;
@@ -132,9 +132,9 @@
             // label4
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(17, 80);
+            this.label4.Location = new System.Drawing.Point(-16, 81);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(333, 2);
+            this.label4.Size = new System.Drawing.Size(700, 2);
             this.label4.TabIndex = 9;
             this.label4.Text = "                                           ";
             // 

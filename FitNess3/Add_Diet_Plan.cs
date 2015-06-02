@@ -13,6 +13,9 @@ namespace FitNess3
 {
     public partial class Add_Diet_Plan : Form
     {
+
+        int initial_width;
+
         public Add_Diet_Plan()
         {
             InitializeComponent();
@@ -24,6 +27,7 @@ namespace FitNess3
         private void Add_Diet_Plan_Load(object sender, EventArgs e)
         {
             dateTimePicker1.CustomFormat = "hh:mm";
+            initial_width = this.Width;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,7 +49,7 @@ namespace FitNess3
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
         }
 
@@ -56,7 +60,7 @@ namespace FitNess3
             try
             {
                 MySqlDataAdapter a = new MySqlDataAdapter();
-                string stm = ("INSERT INTO `plan_foods` (`plan_id`, `food_id`, `time`, `notes`) VALUES ('" + comboBox2.SelectedValue.ToString() + "', '" + comboBox1.SelectedValue.ToString() + "', '" + dateTimePicker1.Value.ToLongTimeString() + "', '"+richTextBox1.Text+"');");
+                string stm = ("INSERT INTO `plan_foods` (`plan_id`, `food_id`, `time`, `notes`) VALUES ('" + comboBox2.SelectedValue.ToString() + "', '" + comboBox1.SelectedValue.ToString() + "', '" + dateTimePicker1.Value.ToString("hh:mm") + "', '" + richTextBox1.Text + "');");
                 MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
 
                 a.SelectCommand = cmd;
@@ -70,7 +74,7 @@ namespace FitNess3
             catch (Exception exc)
             {
                 // MessageBox.Show("Invalid Plan!");
-                // MessageBox.Show(exc.ToString());
+                 //MessageBox.Show(exc.ToString());
             }
 
         }
@@ -128,7 +132,7 @@ namespace FitNess3
             catch (Exception exc)
             {
                // MessageBox.Show("Invalid Plan!");
-               // MessageBox.Show(exc.ToString());
+               //MessageBox.Show(exc.ToString());
             }
 
         }
@@ -332,14 +336,14 @@ namespace FitNess3
                         string stm = ("DELETE FROM `plan_foods` WHERE `plan_foods`.`plan_food_id` =" + selected);
                         MySqlCommand cmd = new MySqlCommand(stm, c.getConnection());
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Food Removed!", "Food Removed");
+                        //MessageBox.Show("Food Removed!", "Food Removed");
                         c.closeConnection();
                         getPlanFoods();
                         setTotals();
                     }
                     catch (Exception exc)
                     {
-                        MessageBox.Show(exc.ToString());
+                        //MessageBox.Show(exc.ToString());
                     }
 
                 }
@@ -368,10 +372,10 @@ namespace FitNess3
         {
             if (checkBox1.Checked == true)
             {
-                this.Width = this.Width+(listBox3.Width+10);
+                this.Width += (listBox3.Width + 10);
             }
             else {
-                this.Width = 380;
+                this.Width = initial_width;
             }
         }
 

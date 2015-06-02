@@ -36,7 +36,7 @@ namespace FitNess3
             c.closeConnection();
             }
             catch(Exception exc){
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
 
         }
@@ -68,7 +68,7 @@ namespace FitNess3
                 }
             }
             catch (Exception exc) {
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
         }
 

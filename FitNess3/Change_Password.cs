@@ -41,12 +41,13 @@ namespace FitNess3
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Password Changed!");
 
+                        c.closeConnection();
                         this.Close();
 
                     }
                     catch (Exception exc)
                     {
-                        MessageBox.Show(exc.ToString());
+                       //MessageBox.Show(exc.ToString());
                     }
                 }
                 else { MessageBox.Show("New Passwords Do Not Match!"); }

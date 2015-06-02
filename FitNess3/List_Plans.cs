@@ -53,7 +53,7 @@ namespace FitNess3
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
             return ds;
         }
@@ -92,7 +92,7 @@ namespace FitNess3
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show(exc.ToString());
+                    //MessageBox.Show(exc.ToString());
                 }
 
             }

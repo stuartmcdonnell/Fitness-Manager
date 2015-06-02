@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Xml;
+using System.Windows;
 
 namespace FitNess3
 {
@@ -55,7 +56,7 @@ namespace FitNess3
                 Console.Write("Connected!");
             }
             catch (Exception exc) {
-                System.Windows.Forms.MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
             return connection;
         }

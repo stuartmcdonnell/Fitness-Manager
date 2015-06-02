@@ -47,36 +47,39 @@ namespace FitNess3
 
 
                 //SET FONT
-                iTextSharp.text.Font font5 = iTextSharp.text.FontFactory.GetFont(FontFactory.HELVETICA, 15);
+                iTextSharp.text.Font font5 = iTextSharp.text.FontFactory.GetFont(FontFactory.HELVETICA, 10);
+                iTextSharp.text.Font font6 = iTextSharp.text.FontFactory.GetFont(FontFactory.HELVETICA, 15);
                 //FINISH FONT
 
                 //ADDING TABLE
                 PdfPTable table = new PdfPTable(3);
-                PdfPCell foodcell = new PdfPCell(new Phrase("FOOD", font5));
-                PdfPCell timecell = new PdfPCell(new Phrase("TIME", font5));
-                PdfPCell notescell = new PdfPCell(new Phrase("NOTES", font5));
 
-                foodcell.PaddingBottom = 3f;
+                PdfPCell timecell = new PdfPCell(new Phrase("TIME", font6));
+                PdfPCell foodcell = new PdfPCell(new Phrase("FOOD", font6));
+                PdfPCell notescell = new PdfPCell(new Phrase("NOTES", font6));
+
+
                 timecell.PaddingBottom = 3f;
+                foodcell.PaddingBottom = 3f;
                 notescell.PaddingBottom = 3f;
 
                 foodcell.Colspan = 1;
                 timecell.Colspan = 1;
                 notescell.Colspan = 1;
-                table.AddCell(foodcell);
                 table.AddCell(timecell);
+                table.AddCell(foodcell);
                 table.AddCell(notescell);
 
                 foreach (DataRow r in datatable.Rows) {
 
-                    table.AddCell(new Phrase(r[0].ToString(), font5));
                     table.AddCell(new Phrase(r[1].ToString(), font5));
+                    table.AddCell(new Phrase(r[0].ToString(), font5));
                     table.AddCell(new Phrase(r[2].ToString(), font5));
                 }
                 Paragraph tablep = new Paragraph();
 
 
-                float[] widths = new float[] {40f,15f, 20f};
+                float[] widths = new float[] {15f,40f, 20f};
                 table.SetWidths(widths);
 
                 tablep.Add(table);
@@ -100,7 +103,7 @@ namespace FitNess3
                 System.Windows.Forms.MessageBox.Show("Plan Saved To: " + newpdf);
             }
             catch (Exception exc) {
-                System.Windows.Forms.MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
 
         }

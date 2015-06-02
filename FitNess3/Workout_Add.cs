@@ -18,11 +18,15 @@ namespace FitNess3
             InitializeComponent();
         }
 
+        int initial_width;
+
         private void Workout_Add_Load(object sender, EventArgs e)
         {
             getExc();
             getWorkouts();
             getWorkoutExc();
+
+            initial_width = this.Width;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -73,7 +77,7 @@ namespace FitNess3
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
         }
 
@@ -111,7 +115,7 @@ namespace FitNess3
             catch (Exception exc)
             {
                 // MessageBox.Show("Invalid Plan!");
-                // MessageBox.Show(exc.ToString());
+                // //MessageBox.Show(exc.ToString());
             }
 
         }
@@ -150,7 +154,7 @@ namespace FitNess3
             catch (Exception exc)
             {
                 // MessageBox.Show("Invalid Plan!");
-                // MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
 
         }
@@ -186,7 +190,7 @@ namespace FitNess3
                     }
                     catch (Exception exc)
                     {
-                        MessageBox.Show(exc.ToString());
+                        //MessageBox.Show(exc.ToString());
                     }
 
                 }
@@ -210,6 +214,19 @@ namespace FitNess3
         
 
         
+        }
+
+        private void checkBox1_CheckStateChanged(object sender, EventArgs e)
+        {
+
+            if (checkBox1.Checked == true)
+            {
+                this.Width += (listBox3.Width + 10);
+            }
+            else {
+                this.Width = initial_width;
+            }
+
         }
 
 

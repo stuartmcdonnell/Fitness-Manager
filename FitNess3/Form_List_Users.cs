@@ -26,6 +26,7 @@ namespace FitNess3
             getData();
             listbox_width = listBox4.Width;
             initial_width = this.Width;
+            radioButton3.Checked = true;
         }
 
         //ALL CLIENTS
@@ -60,7 +61,7 @@ namespace FitNess3
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
             return ds;
         }
@@ -99,7 +100,7 @@ namespace FitNess3
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
         
         }
@@ -143,7 +144,7 @@ namespace FitNess3
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
         
         }
@@ -169,6 +170,18 @@ namespace FitNess3
         private void button1_Click(object sender, EventArgs e)
         {
             removeSelected();
+            if (radioButton1.Checked)
+            {
+                getClientsPlans();
+            }
+            else if (radioButton2.Checked)
+            {
+                getClientsWithNoPlan();
+            }
+            else if (radioButton3.Checked)
+            {
+                getData();
+            }
         }
 
 
@@ -191,7 +204,7 @@ namespace FitNess3
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show(exc.ToString());
+                    //MessageBox.Show(exc.ToString());
                 }
 
             }

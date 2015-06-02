@@ -61,7 +61,7 @@ namespace FitNess3
                 comboBox3.DisplayMember = "name";
             }
             catch (Exception exc) {
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
 
 
@@ -85,7 +85,7 @@ namespace FitNess3
                 MessageBox.Show("Diet Plan Assigned!", "Plan Assigned");
             }
             catch (Exception exc) {
-                MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
         }
 
@@ -104,7 +104,7 @@ namespace FitNess3
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.ToString());
+               //MessageBox.Show(exc.ToString());
             }
         }
 

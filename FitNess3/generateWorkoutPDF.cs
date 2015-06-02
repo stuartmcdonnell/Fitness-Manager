@@ -43,14 +43,15 @@ namespace FitNess3
 
 
                 //SET FONT
-                iTextSharp.text.Font font5 = iTextSharp.text.FontFactory.GetFont(FontFactory.HELVETICA, 15);
+                iTextSharp.text.Font font5 = iTextSharp.text.FontFactory.GetFont(FontFactory.HELVETICA, 10);
+                iTextSharp.text.Font font6 = iTextSharp.text.FontFactory.GetFont(FontFactory.HELVETICA, 15);
                 //FINISH FONT
 
                 //ADDING TABLE
                 PdfPTable table = new PdfPTable(3);
-                PdfPCell exccell = new PdfPCell(new Phrase("EXERCISE", font5));
-                PdfPCell desccell = new PdfPCell(new Phrase("DESCRIPTION", font5));
-                PdfPCell notescell = new PdfPCell(new Phrase("NOTES", font5));
+                PdfPCell exccell = new PdfPCell(new Phrase("EXERCISE", font6));
+                PdfPCell desccell = new PdfPCell(new Phrase("DESCRIPTION", font6));
+                PdfPCell notescell = new PdfPCell(new Phrase("NOTES", font6));
 
                 exccell.PaddingBottom = 3f;
                 desccell.PaddingBottom = 3f;
@@ -90,7 +91,7 @@ namespace FitNess3
             }
             catch (Exception exc)
             {
-                System.Windows.Forms.MessageBox.Show(exc.ToString());
+                //MessageBox.Show(exc.ToString());
             }
 
 
