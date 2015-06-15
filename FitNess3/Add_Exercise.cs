@@ -37,6 +37,7 @@ namespace FitNess3
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Exercise Added!");
                 c.closeConnection();
+                this.Close();
             }
             catch (Exception exc)
             {

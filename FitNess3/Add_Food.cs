@@ -29,6 +29,7 @@ namespace FitNess3
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Food Added!");
                 c.closeConnection();
+                this.Close();
             }
             catch (Exception exc)
             {

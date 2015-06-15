@@ -13,27 +13,37 @@ namespace FitNess3
     {
 
         
-        string host {get;set;}
-        string database {get;set;}
+        public string host {get;set;}
+        public string database {get;set;}
+        public string userid { get; set; }
         static MySqlConnection connection = new MySqlConnection();
 
 
 
         private void getHost() {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("http://stuartmcdonnell.co.uk/fitnessmanager/config.xml");
-            this.host=doc.SelectSingleNode("connection/host").InnerText;
-            this.database = doc.SelectSingleNode("connection/database").InnerText;
 
-            //System.Windows.Forms.MessageBox.Show(this.host+Environment.NewLine+this.database);
+            try
+            {
+
+                XmlDocument doc = new XmlDocument();
+                doc.Load("config.xml");
+                this.host = doc.SelectSingleNode("config/host").InnerText;
+                this.database = doc.SelectSingleNode("config/database").InnerText;
+                this.userid = doc.SelectSingleNode("config/userid").InnerText;
+
+                //System.Windows.Forms.MessageBox.Show(this.host+Environment.NewLine+this.database);
 
 
-            connection.ConnectionString = (
-                "Server="+this.host+";" +
-                "Database="+this.database+";" +
-                "Uid=fitdb_user;" +
-                "password=123456;"
-                );
+                connection.ConnectionString = (
+                    "Server=" + this.host + ";" +
+                    "Database=" + this.database + ";" +
+                    "Uid=fitdb_user;" +
+                    "password=123456;"
+                    );
+
+            }catch(Exception exc){
+                System.Windows.Forms.MessageBox.Show(exc.ToString());
+            }
         }
 
 
@@ -53,7 +63,7 @@ namespace FitNess3
             try
             {
                 connection.Open();
-                Console.Write("Connected!");
+                Console.WriteLine("Connected!");
             }
             catch (Exception exc) {
                 //MessageBox.Show(exc.ToString());
@@ -63,6 +73,7 @@ namespace FitNess3
 
         public void closeConnection() {
             connection.Close();
+            Console.WriteLine("Connection Closed");
         }
 
         public MySqlConnection getConnection() {

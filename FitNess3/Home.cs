@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Xml;
+using Microsoft.VisualBasic;
+using MySql.Data.MySqlClient;
 
 namespace FitNess3
 {
@@ -19,7 +23,7 @@ namespace FitNess3
         public Home()
         {
             InitializeComponent();
-
+            firstRun();
             logoutToolStripMenuItem.Enabled = false;
             changePasswordToolStripMenuItem.Enabled = false;
             loginToolStripMenuItem.Enabled = true;
@@ -39,6 +43,89 @@ namespace FitNess3
             }
 
         }
+
+        private void firstRun() {
+
+            
+
+            if (File.Exists("config.xml"))
+            {
+                Console.WriteLine("CONFIG EXISTS... LOADING");
+            }
+            else {
+                Console.WriteLine("CONFIG DOESNT EXIST... CREATING");
+                try
+                {
+
+                    string input = Microsoft.VisualBasic.Interaction.InputBox("Please Enter Your User ID"+Environment.NewLine+"This can be found in your welcmail."+Environment.NewLine+"Contact Support for Further Assistance.", "Welcome to FitNess Manager", "", -1, -1);
+
+                    XmlWriterSettings settings = new XmlWriterSettings();
+                    settings.Indent = true;
+                    settings.IndentChars = "\t";
+                    XmlWriter writer = XmlWriter.Create("config.xml", settings);
+
+
+                    writer.WriteStartDocument();
+                    writer.WriteStartElement("config");
+
+
+                    writer.WriteStartElement("userid");
+                    writer.WriteString(input);
+                    writer.WriteEndElement();
+
+
+                    MySqlConnection admin = new MySqlConnection(
+                        "Server=107.180.3.229;" +
+                        "Database=manager_clients;" +
+                        "Uid=fitdb_user;" +
+                        "password=123456;"
+                        );
+
+                    admin.Open();
+                    string stm = ("SELECT `database_name` FROM clients WHERE `userid` = "+"'"+input+"'");
+                    MySqlCommand cmd = new MySqlCommand(stm, admin);
+                    string database_name = Convert.ToString(cmd.ExecuteScalar());
+                    admin.Close();
+
+                    admin.Open();
+                    string stm2 = ("SELECT `host` FROM clients WHERE `userid` = " + "'" + input + "'");
+                    MySqlCommand cmd2 = new MySqlCommand(stm2, admin);
+                    string host = Convert.ToString(cmd2.ExecuteScalar());
+                    admin.Close();
+
+                    //ONE
+                    writer.WriteStartElement("database");
+                    writer.WriteString(database_name);
+                    writer.WriteEndElement();
+
+                    writer.WriteStartElement("host");
+                    writer.WriteString(host);
+                    writer.WriteEndElement();
+
+                    writer.WriteEndDocument();
+                    writer.Close();
+
+                    if ((database_name == "") || (host == "")) {
+
+
+                        MessageBox.Show("Error Downloading User Settings" + Environment.NewLine + "Please Contact Support!","Error",  MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        File.Delete("config.xml");
+                        Environment.Exit(1);
+
+                    }
+
+
+                }
+                catch (Exception exc) {
+                   MessageBox.Show(exc.ToString());
+                   File.Delete("config.xml");
+                
+                }
+                   
+            }
+
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -236,6 +323,42 @@ namespace FitNess3
         {
             Client_Progress progress = new Client_Progress("205");
             progress.Show();
+        }
+
+        private void button1_Click_8(object sender, EventArgs e)
+        {
+            Client_Planner planner = new Client_Planner(206);
+            planner.Show();
+        }
+
+        private void clearConfigToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (File.Exists("config.xml"))
+            {
+
+                var confirmresult = MessageBox.Show("Delete all manager config"+Environment.NewLine+"Are you sure?", "Clear Config", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirmresult == DialogResult.Yes)
+                {
+                    File.Delete("config.xml");
+                    Environment.Exit(1);
+                }
+                else { 
+                
+
+                }
+                
+            }
+            else {
+                MessageBox.Show("Config Does Not Exist!");
+            }
+        }
+
+
+        private void infoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Settings_Report report = new Settings_Report();
+            report.Show();
         }
 
     }

@@ -50,6 +50,7 @@
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,7 +141,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(289, 466);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
+            this.button1.Size = new System.Drawing.Size(100, 66);
             this.button1.TabIndex = 9;
             this.button1.Text = "Edit Client";
             this.button1.UseVisualStyleBackColor = true;
@@ -148,9 +149,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(131, 466);
+            this.button2.Location = new System.Drawing.Point(12, 502);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 30);
+            this.button2.Size = new System.Drawing.Size(113, 30);
             this.button2.TabIndex = 10;
             this.button2.Text = "Show Progress";
             this.button2.UseVisualStyleBackColor = true;
@@ -255,11 +256,22 @@
             this.label15.TabIndex = 21;
             this.label15.Text = "Long Term Goals";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(131, 466);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(85, 66);
+            this.button4.TabIndex = 22;
+            this.button4.Text = "Show Planner";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // client_profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 506);
+            this.ClientSize = new System.Drawing.Size(401, 539);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.richTextBox2);
@@ -315,5 +327,6 @@
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button4;
     }
 }

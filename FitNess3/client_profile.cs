@@ -171,6 +171,12 @@ namespace FitNess3
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Client_Planner planner = new Client_Planner(this.clientid);
+            planner.Show();
+        }
+
 
 
     }//BASE

@@ -34,6 +34,7 @@ namespace FitNess3
             cmd.ExecuteNonQuery();
             MessageBox.Show("Client Added!", "Client Added");
             c.closeConnection();
+            this.Close();
             }
             catch(Exception exc){
                 //MessageBox.Show(exc.ToString());
