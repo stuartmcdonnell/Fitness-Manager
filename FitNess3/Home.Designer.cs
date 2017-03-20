@@ -36,6 +36,7 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -68,8 +69,9 @@
             this.assign_plan = new System.Windows.Forms.Button();
             this.search_client = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.planner_today = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -78,6 +80,7 @@
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,9 +137,16 @@
             // clearConfigToolStripMenuItem
             // 
             this.clearConfigToolStripMenuItem.Name = "clearConfigToolStripMenuItem";
-            this.clearConfigToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clearConfigToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.clearConfigToolStripMenuItem.Text = "Clear Config";
             this.clearConfigToolStripMenuItem.Click += new System.EventHandler(this.clearConfigToolStripMenuItem_Click);
+            // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.infoToolStripMenuItem.Text = "System Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click_1);
             // 
             // logoutToolStripMenuItem
             // 
@@ -453,11 +463,34 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(12, 28);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(540, 199);
             this.tabControl1.TabIndex = 15;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.planner_today);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(532, 173);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Planner";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // planner_today
+            // 
+            this.planner_today.Enabled = false;
+            this.planner_today.Location = new System.Drawing.Point(6, 6);
+            this.planner_today.Name = "planner_today";
+            this.planner_today.Size = new System.Drawing.Size(255, 78);
+            this.planner_today.TabIndex = 17;
+            this.planner_today.Text = "ALL BOOKINGS";
+            this.planner_today.UseVisualStyleBackColor = true;
+            this.planner_today.Click += new System.EventHandler(this.button1_Click_9);
             // 
             // pictureBox1
             // 
@@ -469,13 +502,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            // 
-            // infoToolStripMenuItem
-            // 
-            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.infoToolStripMenuItem.Text = "System Info";
-            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click_1);
             // 
             // Home
             // 
@@ -501,6 +527,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -549,6 +576,8 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearConfigToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Button planner_today;
     }
 }
 

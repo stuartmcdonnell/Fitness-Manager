@@ -91,7 +91,7 @@ namespace FitNess3
 
                 Paragraph p = new Paragraph();
                 p.Font = font5;
-                p.Add("CALORIES: "+calories.ToString()+"    PROTEIN: "+protein.ToString()+Environment.NewLine+"    CARBS: "+carbs.ToString()+"    FAT: "+fat.ToString());
+                p.Add("CALORIES: "+calories.ToString()+"    PROTEIN (g): "+protein.ToString()+Environment.NewLine+"    CARBS (g): "+carbs.ToString()+"    FAT (g): "+fat.ToString());
                 p.Alignment = Element.ALIGN_CENTER;
                 doc.Add(p);
 

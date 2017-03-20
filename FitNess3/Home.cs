@@ -75,7 +75,7 @@ namespace FitNess3
 
 
                     MySqlConnection admin = new MySqlConnection(
-                        "Server=107.180.3.229;" +
+                        "Server=localhost;" +
                         "Database=manager_clients;" +
                         "Uid=fitdb_user;" +
                         "password=123456;"
@@ -163,6 +163,7 @@ namespace FitNess3
                 showworkout.Enabled = true;
                 addexercise.Enabled = true;
                 listexercise.Enabled = true;
+                planner_today.Enabled = true;
             }
             else {
                 toolStripLabel1.Text = "Please Log In!";//Logged Out
@@ -184,6 +185,7 @@ namespace FitNess3
                 showworkout.Enabled = false;
                 addexercise.Enabled = false;
                 listexercise.Enabled = false;
+                planner_today.Enabled = false;
             }
             timer1.Start();
         }
@@ -359,6 +361,12 @@ namespace FitNess3
         {
             Settings_Report report = new Settings_Report();
             report.Show();
+        }
+
+        private void button1_Click_9(object sender, EventArgs e)
+        {
+            Bookings_Today today = new Bookings_Today();
+            today.Show();
         }
 
     }

@@ -63,29 +63,29 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 64);
+            this.label3.Location = new System.Drawing.Point(20, 64);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Protein:";
+            this.label3.Text = "Protein (g):";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 90);
+            this.label4.Location = new System.Drawing.Point(26, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Carbs:";
+            this.label4.Text = "Carbs (g):";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(53, 116);
+            this.label5.Location = new System.Drawing.Point(38, 116);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 13);
+            this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Fat:";
+            this.label5.Text = "Fat (g):";
             // 
             // textBox1
             // 
